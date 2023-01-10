@@ -1,7 +1,8 @@
+#Creamos la funcion del menú principal
 def menu():
     exit=False
+    #Mostramos el menú, recogemos la opción requerida y comprobamos que es válida
     while(exit!=True):
-        var=2
         print("------------------------------------")
         print("---------Menú-ejercicios------------")
         print("------------------------------------")
@@ -19,6 +20,7 @@ def menu():
         print("12- Salir")
         opcion=int(input("Por favor, introduzca la opcion deseada: "))
 
+        #Llamamos a la función correspondiente dependiendo de la opcion escogida.
         if(opcion==1):
             ej1()
         elif(opcion==2):
@@ -46,18 +48,21 @@ def menu():
         else:
             print("Introduzca un número válido!")
 
+#Creamos un fichero de la forma clásica, y luego lo cerramos
 def ej1():
     fichero = open("ficheroE1.txt", "w")
     fichero.write("Este es mi primer programa de fichero y lo he escrito en python usando la forma clásica:")
     fichero.close
     print("Terminado!")
 
+#Creamos un fichero de la forma recomendada, y luego lo cerramos
 def ej2():
     with open("ficheroE2.txt", "w") as fichero: 
         fichero.write("Este es mi segundo programa de fichero y lo he escrito en python usando la forma recomendada:")
         fichero.close
     print("Terminado!")
 
+#Creamos un fichero y escribimos en él el número inrtoducido por teclado
 def ej3():
     with open("ejercicio3-100.txt", "w") as fichero:
         valido=False
@@ -72,6 +77,7 @@ def ej3():
         fichero.close
     print("Terminado!")
 
+#Creamos un fichero y escribimos en él la tabla de multiplicar del número introducido
 def ej4():
     with open("ejercicio4-tabla.txt", "a") as fichero:
         valido=False
@@ -87,6 +93,8 @@ def ej4():
         fichero.close
     print("Terminado!")
 
+
+#Creamos un fichero y escribimos en él la tabla de multiplicar del número introducido hasta el número introducido
 def ej5():
     with open("ejercicio5-tabla.txt", "a") as fichero:
         valido=False
@@ -104,8 +112,8 @@ def ej5():
         fichero.close
     print("Terminado!")
 
+#Modificamos el fichero del ejercicio 4 añadiendole otra tabla de multiplicar
 def ej6():
-
     valido=False
     while(valido!=True):
         numero=int(input("Introduzca el número del que quiera sacar la tabla de multiplicar: "))
@@ -120,6 +128,7 @@ def ej6():
         fichero.close
     print("Terminado!")
 
+#Buscamos una tabla de multiplicar en el fichero introducido, si no exxiste manejamos el error para que le programa no crashee
 def ej7():
     valido=False
     while(valido!=True):
@@ -136,6 +145,7 @@ def ej7():
     except FileNotFoundError:
         print("Fichero no encontrado.")
 
+#Leemos el número de lineas introducido del fichero del ejercicio 4.
 def ej8():
     valido=False
     while(valido!=True):
@@ -150,6 +160,7 @@ def ej8():
             leer=fichero.readline()
             print(leer, end="")
 
+#Leemos el número de lineas introducido a partir del número introducido del fichero del ejercicio 4.
 def ej9():
     valido=False
     while(valido!=True):
@@ -167,18 +178,23 @@ def ej9():
             if(i>=numero):
                 print(leer, end="")
 
+#Contamos el número de líneas que tiene el fichero del ejercicio 4.
 def ej10():
     with open("ejercicio4-tabla.txt", "r") as fichero:
         count=len(fichero.readlines())
         print("El documento tiene "+str(count)+" líneas.")
 
+#Funcion para sumar dos matrices
 def ej11():
+    #Llamamos a una función para que nos cree las matrices.
     matriceria("matriz1", "primera")
     matriceria("matriz2", "segunda")
+    #Llamamos a una función para que nos lea las matrices y las guardamos.
     matriz1=leematriz("matriz1")
     matriz2=leematriz("matriz2")
     resultado=[]
 
+    #Sumamos las matrices
     for i in range(3):
         fila=[]
         for x in range(3):
@@ -189,12 +205,15 @@ def ej11():
     print(" "+str(resultado[1][0])+" "+str(resultado[1][1])+" "+str(resultado[1][2]))
     print(" "+str(resultado[2][0])+" "+str(resultado[2][1])+" "+str(resultado[2][2])+"]")
 
+    #Guardamos la matriz resultante en un fichero.
     with open("resultado.txt", "w") as fichero:
         for i in range(3):
             for x in range(3):
                 numero=resultado[i][x]
                 fichero.write(str(numero)+" ")
             fichero.write("\n")
+
+#Función para crear matrices y almacenarlas en ficheros.
 def matriceria(nombrefichero, numeromatriz):
     matriz=[]
     
@@ -217,6 +236,7 @@ def matriceria(nombrefichero, numeromatriz):
         #Se introduce el array fila[] en el array matriz[] para hacerlo bidimensional
         matriz.append(fila)
     print("")
+    #Se escribe la matriz en el fichero.
     with open(nombrefichero+".txt", "w") as fichero:
         for i in range(3):
             for x in range(3):
@@ -224,6 +244,7 @@ def matriceria(nombrefichero, numeromatriz):
                 fichero.write(str(numero)+" ")
             fichero.write("\n")
 
+#Función para leer matrices a partir de ficheros.
 def leematriz(nombrefichero):
     matriz=[]
     with open(nombrefichero+".txt", "r") as fichero:
@@ -233,4 +254,6 @@ def leematriz(nombrefichero):
             fila=fila.split()
             matriz.append(fila)
     return matriz
+
+#Iniciamos el programa
 menu()
