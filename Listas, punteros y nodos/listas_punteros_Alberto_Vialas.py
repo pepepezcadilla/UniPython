@@ -17,16 +17,49 @@
 #circular_d.        en este caso el fichero se llamará "lista_circular_d.txt"
 
 #Creamos el diccionario que almacenará los nodos
-listaenlazada = {}
+
 
 #Creamos el objeto nodo y le implementamos un constructor
 class Nodo:
-    def constructor(self, datos):
+    def __init__(self, datos):
         self.datos = datos
         self.next = None
+        self.prev = None
 
 def crear_nodo(datos):
     nodocreado = Nodo(datos)
+    return nodocreado
     
-def insertar_inicio(nodo):
-    print
+def insertar_inicio(lista, nodo):
+    lista["pos1"] = lista["head"]
+    nodo.next = lista["head"]
+    lista["head"].prev = nodo
+    lista["head"] = nodo
+    return lista
+
+def insertar_nodo(lista, nodo):
+    keybuscada = buscar_nodo(lista, nodo)
+    print("key en insertar_nodo2"+str(buscar_nodo(lista, nodo)))
+    return lista
+
+def buscar_nodo(lista, nodo_buscado):
+    for key in lista.items():
+        if lista.values == nodo_buscado:
+            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            return key
+
+
+#Inicio del programa
+listaenlazada = {}
+nodo1= crear_nodo("Prueba1")
+nodo1.next = "Prueba2"
+nodo2= crear_nodo("Prueba2")
+nodo2.next = ("Prueba1")
+listaenlazada["head"]=nodo1
+listaenlazada["pos1"]=nodo2
+listaenlazada = insertar_inicio(listaenlazada, nodo2)
+
+insertar_nodo(listaenlazada, "Prueba1")
+
+print(listaenlazada["head"].datos)
+print(listaenlazada["pos1"].datos)
