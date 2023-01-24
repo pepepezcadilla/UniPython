@@ -1,3 +1,21 @@
+#Se aconseja implementar, modificando lo que se considere necesario en función de cada opción,  al menos, las siguientes funciones:
+
+#crear_nodo             función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
+#insertar_inicio        función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
+#insertar_nodo        función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
+#insertar_final         función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
+#contar_nodos        función que devuelve el número de nodos de una lista
+#eliminar_nodo       función que le pide al usuario un nodo y si está, se elimina de la lista.
+#imprimir_valor_lista        función que imprime el valor de cada nodo (se deja como ampliación el modo en el que muestra la lista)
+#imprimir_lista_completa    función que imprime todos los campos de cada nodo
+#imprimir_reves      función que imprime la lista desde el final al principio (se deja como ampliación el modo en el que muestra la lista)
+#buscar_nodo         función que busca un nodo dentro de la lista
+#copiar_lista.           función que copia una lista (con todos sus campos) a un fichero llamado "lista_tipo.txt", de forma que "tipo" puede tomar los siguientes valores en función del tipo de lista que es:
+#enlazada          en este caso el fichero se llamará "lista_enlazada.txt"
+#enlazada_d      en este caso el fichero se llamará "lista_enlazada_d.txt"
+#circular             en este caso el fichero se llamará "lista_circular.txt"
+#circular_d.        en este caso el fichero se llamará "lista_circular_d.txt"
+
 #Creamos el diccionario que almacenará los nodos
 listaenlazada = {}
 
@@ -10,3 +28,5 @@ class Nodo:
 def crear_nodo(datos):
     nodocreado = Nodo(datos)
     
+def insertar_inicio(nodo):
+    print
