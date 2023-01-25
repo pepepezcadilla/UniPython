@@ -1,15 +1,15 @@
 #Se aconseja implementar, modificando lo que se considere necesario en función de cada opción,  al menos, las siguientes funciones:
 
-#crear_nodo             función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
-#insertar_inicio        función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
-#insertar_nodo        función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
+#crear_nodo  hecho           función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
+#insertar_inicio  hecho      función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
+#insertar_nodo        
 #insertar_final         función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
 #contar_nodos        función que devuelve el número de nodos de una lista
 #eliminar_nodo       función que le pide al usuario un nodo y si está, se elimina de la lista.
 #imprimir_valor_lista        función que imprime el valor de cada nodo (se deja como ampliación el modo en el que muestra la lista)
 #imprimir_lista_completa    función que imprime todos los campos de cada nodo
 #imprimir_reves      función que imprime la lista desde el final al principio (se deja como ampliación el modo en el que muestra la lista)
-#buscar_nodo         función que busca un nodo dentro de la lista
+#buscar_nodo    hecho     función que busca un nodo dentro de la lista
 #copiar_lista.           función que copia una lista (con todos sus campos) a un fichero llamado "lista_tipo.txt", de forma que "tipo" puede tomar los siguientes valores en función del tipo de lista que es:
 #enlazada          en este caso el fichero se llamará "lista_enlazada.txt"
 #enlazada_d      en este caso el fichero se llamará "lista_enlazada_d.txt"
@@ -43,10 +43,12 @@ def insertar_nodo(lista, nodo):
     return lista
 
 def buscar_nodo(lista, nodo_buscado):
-    for key in lista.items():
-        if lista.values == nodo_buscado:
-            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    for key, value in lista.items():
+        if value == nodo_buscado:
+            print("llave es "+str(key))
             return key
+    return None
+
 
 
 #Inicio del programa
@@ -59,7 +61,7 @@ listaenlazada["head"]=nodo1
 listaenlazada["pos1"]=nodo2
 listaenlazada = insertar_inicio(listaenlazada, nodo2)
 
-insertar_nodo(listaenlazada, "Prueba1")
+insertar_nodo(listaenlazada, nodo1)
 
 print(listaenlazada["head"].datos)
 print(listaenlazada["pos1"].datos)
