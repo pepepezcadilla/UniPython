@@ -2,7 +2,7 @@
 
 #crear_nodo  hecho           función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
 #insertar_inicio  hecho      función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
-#insertar_nodo        
+#insertar_nodo                  # función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
 #insertar_final         función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
 #contar_nodos        función que devuelve el número de nodos de una lista
 #eliminar_nodo       función que le pide al usuario un nodo y si está, se elimina de la lista.
@@ -22,9 +22,7 @@
 #Creamos el objeto nodo y le implementamos un constructor
 class Nodo:
     def __init__(self, datos):
-        self.datos = datos
-        self.next = None
-        self.prev = None
+        self.nodo = {"datos": datos, "next": None, "prev": None}
 
 def crear_nodo(datos):
     nodocreado = Nodo(datos)
@@ -49,19 +47,49 @@ def buscar_nodo(lista, nodo_buscado):
             return key
     return None
 
+def contar_nodo(lista):
+    longitud=len(lista)
+    return longitud
 
 
+
+def crealista(lista):
+    nodo1= crear_nodo("Prueba1")
+    nodo2= crear_nodo("Prueba2")
+    nodo3= crear_nodo("Prueba2")
+    nodo4= crear_nodo("Prueba4")
+    nodo5= crear_nodo("Prueba5")
+    nodo6= crear_nodo("Prueba6")
+
+    nodo1.next = nodo2
+    nodo1.prev = nodo6
+    nodo2.next = nodo3
+    nodo2.prev = nodo1
+    nodo3.next = nodo4
+    nodo3.prev = nodo2
+    nodo4.next = nodo5
+    nodo4.prev = nodo3
+    nodo5.next = nodo6
+    nodo5.prev = nodo4
+    nodo6.next = nodo1
+    nodo6.prev = nodo5
+
+    lista.append(nodo1)
+    lista[1]=nodo2
+    lista[2]=nodo3
+    lista[3]=nodo4
+    lista[4]=nodo5
+    lista[5]=nodo6
+    return lista
+    
 #Inicio del programa
-listaenlazada = {}
-nodo1= crear_nodo("Prueba1")
-nodo1.next = "Prueba2"
-nodo2= crear_nodo("Prueba2")
-nodo2.next = ("Prueba1")
-listaenlazada["head"]=nodo1
-listaenlazada["pos1"]=nodo2
-listaenlazada = insertar_inicio(listaenlazada, nodo2)
+listaenlazada = []
+listaenlazada = crealista(listaenlazada)
 
-insertar_nodo(listaenlazada, nodo1)
+nodonuevo = crear_nodo("pruebainicio")
+listaenlazada = insertar_inicio(listaenlazada, nodonuevo)
+long=contar_nodo(listaenlazada)
+print("La longitud es: "+str(long))
 
-print(listaenlazada["head"].datos)
+print(listaenlazada[head]["datos"])
 print(listaenlazada["pos1"].datos)
