@@ -1,6 +1,6 @@
 #Se aconseja implementar, modificando lo que se considere necesario en función de cada opción,  al menos, las siguientes funciones:
 
-#crear_nodo  hecho           función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
+#crear_nodo  hecho  hecho(diccionario)         función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
 #insertar_inicio  hecho      función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
 #insertar_nodo                  # función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
 #insertar_final         función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
@@ -16,23 +16,22 @@
 #circular             en este caso el fichero se llamará "lista_circular.txt"
 #circular_d.        en este caso el fichero se llamará "lista_circular_d.txt"
 
-#Creamos el diccionario que almacenará los nodos
 
 
 #Creamos el objeto nodo y le implementamos un constructor
 class Nodo:
     def __init__(self, datos):
         self.nodo = {"datos": datos, "next": None, "prev": None}
+    
+    def __getitem__(self, key):
+        return self.nodo[key]
 
 def crear_nodo(datos):
     nodocreado = Nodo(datos)
     return nodocreado
     
 def insertar_inicio(lista, nodo):
-    lista["pos1"] = lista["head"]
-    nodo.next = lista["head"]
-    lista["head"].prev = nodo
-    lista["head"] = nodo
+    lista.insert(0, nodo)
     return lista
 
 def insertar_nodo(lista, nodo):
@@ -75,11 +74,11 @@ def crealista(lista):
     nodo6.prev = nodo5
 
     lista.append(nodo1)
-    lista[1]=nodo2
-    lista[2]=nodo3
-    lista[3]=nodo4
-    lista[4]=nodo5
-    lista[5]=nodo6
+    lista.append(nodo2)
+    lista.append(nodo3)
+    lista.append(nodo4)
+    lista.append(nodo5)
+    lista.append(nodo6)
     return lista
     
 #Inicio del programa
@@ -91,5 +90,4 @@ listaenlazada = insertar_inicio(listaenlazada, nodonuevo)
 long=contar_nodo(listaenlazada)
 print("La longitud es: "+str(long))
 
-print(listaenlazada[head]["datos"])
-print(listaenlazada["pos1"].datos)
+print(listaenlazada[0]["datos"])
