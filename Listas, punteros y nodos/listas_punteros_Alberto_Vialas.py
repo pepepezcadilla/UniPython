@@ -2,13 +2,13 @@
 
 #crear_nodo  hecho  hecho(diccionario)         función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
 #insertar_inicio  hecho      función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
-#insertar_nodo                  # función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
-#insertar_final         función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
-#contar_nodos        función que devuelve el número de nodos de una lista
-#eliminar_nodo       función que le pide al usuario un nodo y si está, se elimina de la lista.
-#imprimir_valor_lista        función que imprime el valor de cada nodo (se deja como ampliación el modo en el que muestra la lista)
-#imprimir_lista_completa    función que imprime todos los campos de cada nodo
-#imprimir_reves      función que imprime la lista desde el final al principio (se deja como ampliación el modo en el que muestra la lista)
+#insertar_nodo      hecho            # función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
+#insertar_final     hecho    función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
+#contar_nodos    hecho    función que devuelve el número de nodos de una lista
+#eliminar_nodo   hecho    función que le pide al usuario un nodo y si está, se elimina de la lista.
+#imprimir_valor_lista  hecho      función que imprime el valor de cada nodo (se deja como ampliación el modo en el que muestra la lista)
+#imprimir_lista_completa  hecho  función que imprime todos los campos de cada nodo
+#imprimir_reves   hecho   función que imprime la lista desde el final al principio (se deja como ampliación el modo en el que muestra la lista)
 #buscar_nodo    hecho     función que busca un nodo dentro de la lista
 #copiar_lista.           función que copia una lista (con todos sus campos) a un fichero llamado "lista_tipo.txt", de forma que "tipo" puede tomar los siguientes valores en función del tipo de lista que es:
 #enlazada          en este caso el fichero se llamará "lista_enlazada.txt"
@@ -19,7 +19,7 @@
 
 
 #Creamos el objeto nodo y le implementamos un constructor
-class Nodo:
+class node:
     def __init__(self, datos):
         self.nodo = {"datos": datos, "next": None, "prev": None}
     
@@ -27,16 +27,23 @@ class Nodo:
         return self.nodo[key]
 
 def crear_nodo(datos):
-    nodocreado = Nodo(datos)
+    nodocreado = node(datos)
     return nodocreado
-    
+
+
 def insertar_inicio(lista, nodo):
     lista.insert(0, nodo)
     return lista
 
-def insertar_nodo(lista, nodo):
-    keybuscada = buscar_nodo(lista, nodo)
-    print("key en insertar_nodo2"+str(buscar_nodo(lista, nodo)))
+def insertar_nodo(lista, nodo, posicion):
+    if(posicion > len(lista)):
+        lista.insert((len(lista)+1), nodo)
+    else:
+        lista.insert(posicion, nodo)
+    return lista
+
+def insertar_final(lista, nodo):
+    lista.append(nodo)
     return lista
 
 def buscar_nodo(lista, nodo_buscado):
@@ -50,6 +57,23 @@ def contar_nodo(lista):
     longitud=len(lista)
     return longitud
 
+def eliminar_nodo(lista, posicion):
+    del lista[posicion]
+    return lista
+
+def imprimir_lista(lista):
+    print(lista)
+    return lista
+
+def imprimir_lista_completa(lista):
+    for i in range (len(lista)):
+        print(lista[i]['datos'])
+
+
+def imprimir_reves(lista):
+    lista.reverse()
+    for i in range (len(lista)):
+        print(lista[i]['datos'])
 
 
 def crealista(lista):
@@ -87,7 +111,8 @@ listaenlazada = crealista(listaenlazada)
 
 nodonuevo = crear_nodo("pruebainicio")
 listaenlazada = insertar_inicio(listaenlazada, nodonuevo)
+listaenlazada = insertar_nodo(listaenlazada, nodonuevo, 50)
 long=contar_nodo(listaenlazada)
 print("La longitud es: "+str(long))
 
-print(listaenlazada[0]["datos"])
+print("Lista: ")
