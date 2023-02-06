@@ -17,6 +17,127 @@
 #circular_d.        en este caso el fichero se llamará "lista_circular_d.txt"
 
 
+#Creamos el menú principal para elegir el tipo de lista
+def menulistas():
+    exit=False
+    while(exit!=True):
+        print("------------------------------------")
+        print("---------Menú-----listas------------")
+        print("------------------------------------")
+        print("1- Listas enlazadas")
+        print("2- Listas doblementre enlazadas")
+        print("3- Listas circulares enlazadas")
+        print("4- Listas circulares doblemente enlazadas")
+        print("5- Exit")
+        print("Introduzca la opción deseada")
+        opcionmenu1 = int(input)
+
+        if (opcionmenu1==1):
+            listasenlazadas()
+        elif(opcionmenu1==2):
+            listadenlazadas()
+        elif(opcionmenu1==3):
+            listacenlazadas()
+        elif(opcionmenu1==4):
+            listacdenlazadas()
+        elif(opcionmenu1==5):
+            exit=True
+
+
+def listasenlazadas():
+    exit=False
+
+    listaenlazada = []
+    listaenlazada = crealistae(listaenlazada)
+    while(exit!=True):
+        print("------------------------------------")
+        print("-------Menú-listas-enlazadas--------")
+        print("------------------------------------")
+        print("1-Crear nodo")
+        print("2-Eliminar nodo")
+        print("3-Contar nodos")
+        print("4-Buscar nodo")
+        print("5-Imprimir datos")
+        print("6-Imprimir lista completa")
+        print("7-Imprimir lista al revés")
+        print("8-Copiar lista")
+        print("9-Exit")
+        print("Introduzca la opción deseada")
+        opcionmenu2 = int(input)
+
+        if (opcionmenu2==1):
+            datos=input("Introduzca los datos del nuevo nodo")
+            nodonuevo=crear_nodo(datos)
+            print("Dónde desea introducir el nodo? (1-al principio, 2-en una posición exacta, 3-al final, 4-no deseo introducirlo")
+            opcion=int(input)
+            if(opcion==1):
+                insertar_inicio(listaenlazada, nodonuevo)
+            elif(opcion==2):
+                posicion=int(input("Introduzca la posición deseada: "))
+                insertar_nodo(listaenlazada, nodonuevo, posicion)
+            elif(opcion==3):
+                insertar_final(listaenlazada, nodonuevo)
+        elif(opcionmenu2==2):
+            nodoeliminado=int(input(""))
+        elif(opcionmenu2==3):
+            listacenlazadas()
+        elif(opcionmenu2==4):
+            listacdenlazadas()
+        elif(opcionmenu2==5):
+            exit=True
+        elif(opcionmenu2==6):
+            exit=True
+        elif(opcionmenu2==7):
+            exit=True
+        elif(opcionmenu2==8):
+            exit=True
+        elif(opcionmenu2==9):
+            exit=True
+
+
+def crealistae(lista):
+    nodo1= crear_nodo("0")
+    nodo2= crear_nodo("1")
+    nodo3= crear_nodo("2")
+    nodo4= crear_nodo("3")
+    nodo5= crear_nodo("4")
+    nodo6= crear_nodo("5")
+
+    nodo1.next = nodo2
+    nodo2.next = nodo3
+    nodo3.next = nodo4
+    nodo4.next = nodo5
+    nodo5.next = nodo6
+
+    lista.append(nodo1)
+    lista.append(nodo2)
+    lista.append(nodo3)
+    lista.append(nodo4)
+    lista.append(nodo5)
+    lista.append(nodo6)
+    return lista
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Creamos el objeto nodo y le implementamos un constructor
 class node:
@@ -106,13 +227,14 @@ def crealista(lista):
     return lista
     
 #Inicio del programa
-listaenlazada = []
-listaenlazada = crealista(listaenlazada)
-
+listaenlazada=[]
 nodonuevo = crear_nodo("pruebainicio")
 listaenlazada = insertar_inicio(listaenlazada, nodonuevo)
 listaenlazada = insertar_nodo(listaenlazada, nodonuevo, 50)
 long=contar_nodo(listaenlazada)
 print("La longitud es: "+str(long))
+print(listaenlazada[0][key])
 
-print("Lista: ")
+imprimir_lista(listaenlazada)
+imprimir_lista_completa(listaenlazada)
+imprimir_reves(listaenlazada)
