@@ -1,25 +1,8 @@
-#Se aconseja implementar, modificando lo que se considere necesario en función de cada opción,  al menos, las siguientes funciones:
-
-#crear_nodo  hecho  hecho(diccionario)         función que crea la estructura de datos de un nodo y su contenido. Dicha estructura será tipo diccionario.
-#insertar_inicio  hecho      función que añade un nuevo nodo al inicio de la lista. Si la lista está vacía, la crea con el valor correspondiente.
-#insertar_nodo      hecho            # función que añade un nodo nuevo entre otros dos nodos ya existentes. Si fuera un nodo inicial o final, lo inserta en su correspondiente posición.
-#insertar_final     hecho    función que añade un nodo al final de la lista. Si la lista está vacía, no podrá insertar ningún nodo.
-#contar_nodos    hecho    función que devuelve el número de nodos de una lista
-#eliminar_nodo   hecho    función que le pide al usuario un nodo y si está, se elimina de la lista.
-#imprimir_valor_lista  hecho      función que imprime el valor de cada nodo (se deja como ampliación el modo en el que muestra la lista)
-#imprimir_lista_completa  hecho  función que imprime todos los campos de cada nodo
-#imprimir_reves   hecho   función que imprime la lista desde el final al principio (se deja como ampliación el modo en el que muestra la lista)
-#buscar_nodo    hecho     función que busca un nodo dentro de la lista
-#copiar_lista.           función que copia una lista (con todos sus campos) a un fichero llamado "lista_tipo.txt", de forma que "tipo" puede tomar los siguientes valores en función del tipo de lista que es:
-#enlazada          en este caso el fichero se llamará "lista_enlazada.txt"
-#enlazada_d      en este caso el fichero se llamará "lista_enlazada_d.txt"
-#circular             en este caso el fichero se llamará "lista_circular.txt"
-#circular_d.        en este caso el fichero se llamará "lista_circular_d.txt"
-
-
 #Creamos el menú principal para elegir el tipo de lista
 def menulistas():
     exit=False
+
+    #creamos el menú por el cual elegimos el tipo de lista
     while(exit!=True):
         print("------------------------------------")
         print("---------Menú-----listas------------")
@@ -44,6 +27,7 @@ def menulistas():
             exit=True
 
 
+#creamos el menú para las listas enlazadas, creamos la lista y asignamos cada opción a una función diferente
 def listasenlazadas():
     exit=False
 
@@ -65,6 +49,7 @@ def listasenlazadas():
         opcionmenu2 = int(input("Introduzca la opción deseada: "))
 
         if (opcionmenu2==1):
+            #damos a elegir en qué posición va a estar situado el nodo
             id=input("Por favor, introdcuzca el identificador del nodo: ")
             datos=input("Introduzca los datos del nuevo nodo: ")
             nodonuevo=crear_nodo(id, datos)
@@ -97,6 +82,7 @@ def listasenlazadas():
             exit=True
 
 
+#añadimos a la lista unos cuantos nodos
 def crealistae(lista):
     nodo1= crear_nodo("nodo1", "1")
     nodo2= crear_nodo("nodo2", "2")
@@ -120,6 +106,7 @@ def crealistae(lista):
     return lista
 
 
+#creamos el menú para las listas doblemente enlazadas, creamos la lista y asignamos cada opción a una función diferente
 def listasdenlazadas():
     exit=False
 
@@ -141,6 +128,7 @@ def listasdenlazadas():
         opcionmenu2 = int(input("Introduzca la opción deseada: "))
 
         if (opcionmenu2==1):
+            #damos a elegir en qué posición va a estar situado el nodo
             id=input("Por favor, introdcuzca el identificador del nodo: ")
             datos=input("Introduzca los datos del nuevo nodo: ")
             nodonuevo=crear_nodo(id, datos)
@@ -173,6 +161,7 @@ def listasdenlazadas():
             exit=True
 
 
+#añadimos a la lista unos cuantos nodos
 def crealistade(lista):
     nodo1= crear_nodo("nodo1", "1")
     nodo2= crear_nodo("nodo2", "2")
@@ -201,6 +190,7 @@ def crealistade(lista):
     return lista
 
 
+#creamos el menú para las listas circulares, creamos la lista y asignamos cada opción a una función diferente
 def listascenlazadas():
     exit=False
 
@@ -222,6 +212,7 @@ def listascenlazadas():
         opcionmenu2 = int(input("Introduzca la opción deseada: "))
 
         if (opcionmenu2==1):
+            #damos a elegir en qué posición va a estar situado el nodo
             id=input("Por favor, introdcuzca el identificador del nodo: ")
             datos=input("Introduzca los datos del nuevo nodo: ")
             nodonuevo=crear_nodo(id, datos)
@@ -254,6 +245,7 @@ def listascenlazadas():
             exit=True
 
 
+#añadimos a la lista unos cuantos nodos
 def crealistac(lista):
     nodo1= crear_nodo("nodo1", "1")
     nodo2= crear_nodo("nodo2", "2")
@@ -278,6 +270,7 @@ def crealistac(lista):
     return lista
 
 
+#creamos el menú para las listas dovlemente circulares, creamos la lista y asignamos cada opción a una función diferente
 def listascdenlazadas():
     exit=False
 
@@ -299,6 +292,7 @@ def listascdenlazadas():
         opcionmenu2 = int(input("Introduzca la opción deseada: "))
 
         if (opcionmenu2==1):
+            #damos a elegir en qué posición va a estar situado el nodo
             id=input("Por favor, introdcuzca el identificador del nodo: ")
             datos=input("Introduzca los datos del nuevo nodo: ")
             nodonuevo=crear_nodo(id, datos)
@@ -331,6 +325,7 @@ def listascdenlazadas():
             exit=True
 
 
+#añadimos a la lista unos cuantos nodos
 def crealistacde(lista):
     nodo1= crear_nodo("nodo1", "1")
     nodo2= crear_nodo("nodo2", "2")
@@ -361,15 +356,18 @@ def crealistacde(lista):
     return lista
 
 
+#función para crear un nodo de clase diccionario
 def crear_nodo(identificador, datos):
     nodocreado = {"id": identificador, "datos": datos, "next": None, "prev": None}
     return nodocreado
 
 
+#insertamos un nodo en la posición 0 (el inicio)
 def insertar_inicio(lista, nodo):
     lista.insert(0, nodo)
     return lista
 
+#insertamos un nodo en la posición indicada, si es superior a la longitud de la lista, se añade al final
 def insertar_nodo(lista, nodo, posicion):
     if(posicion > len(lista)):
         lista.insert((len(lista)+1), nodo)
@@ -377,10 +375,12 @@ def insertar_nodo(lista, nodo, posicion):
         lista.insert(posicion, nodo)
     return lista
 
+#insertamos un nodo al final de la lista
 def insertar_final(lista, nodo):
     lista.append(nodo)
     return lista
 
+#buscamos y mostramos un nodo, recorriendo toda la lista hasta encontrarlo
 def buscar_nodo(lista, nodo_buscado):
     for elemento in lista:
         for key, values in elemento.items():
@@ -389,10 +389,12 @@ def buscar_nodo(lista, nodo_buscado):
                     print("Los datos del nodo "+str(values)+" son "+elemento["datos"])
     return None
 
+#devolvemos la longitud de la lista
 def contar_nodo(lista):
     longitud=len(lista)
     return longitud
 
+#si el nodo seleccioando existe, lo eliminamos, recorriendo toda la lista hasta encontrarlo.
 def eliminar_nodo(lista, borra):
     for elemento in lista:
         for key, values in elemento.items():
@@ -402,20 +404,23 @@ def eliminar_nodo(lista, borra):
                     
     return lista
 
+#imprimimos los datos de todos los nodos
 def imprimir_lista(lista):
     for i in range (len(lista)):
         print(lista[i]['datos'])
 
+#imprimimos los identificadores y los datos de los nodos
 def imprimir_lista_completa(lista):
     for i in range (len(lista)):
         print(lista[i]['id'],lista[i]['datos'])
 
-
+#imprimimos los identificadores y los datos de los nodos, pero ordenados al revés
 def imprimir_reves(lista):
     lista.reverse()
     for i in range (len(lista)):
         print(lista[i]['id'],lista[i]['datos'])
 
+#copiamos el contenido de la lista suministrada al fichero de texto correspondiente, diferenciando entre los diferentes tipos de listas
 def copiar_lista(lista, opcion):
     if(opcion==1):
         with open("lista_enlazada.txt", "w") as fichero:
