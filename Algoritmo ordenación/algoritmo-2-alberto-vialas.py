@@ -16,25 +16,20 @@ def compruebaorden(array):
             ordenado = True
     return ordenado
 
+#Creamos una finción en la cual se va comparando el valor del array seleccionado (dado por la variable posición) con el siguiente, hasta que encuentra un valor más alto.
 def ordenarray(array):
-    acabado = False
-    posicion = 0
-    while(acabado!=True):
-        acabado = compruebaorden(array)
-        posicion = 0
-        for x in range(10):
-            for i in range(10):
-                if(array[posicion]>array[i]):
-                    array[posicion], array[i] = array[i], array[posicion]
-                    posicion = i
-                    print(array)
-                else:
-                    break
-            print(array)
-            posicion = x+1
+    for p in range(10):
+        posicion=0
+        for x in range(9):
+            if(array[posicion]>array[x+1]):
+                print("cambio "+str(array[posicion])+" por "+str(array[x+1]))
+                array[posicion], array[x+1] = array[x+1], array[posicion]
+                posicion = posicion+1
+            else:
+                posicion = posicion+1
     return array
 
-
+#Inicio del programa
 arrayuno = []
 arrayuno=introducedatos(arrayuno)
 arrayuno=ordenarray(arrayuno)
