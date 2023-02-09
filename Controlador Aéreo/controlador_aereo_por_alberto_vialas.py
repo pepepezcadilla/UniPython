@@ -81,24 +81,24 @@ def asignapista(prio, noprio):
     while(prio.colavacia()!=True or noprio.colavacia!=True):
         if(noprio.colavacia()==False):
             pista1 = noprio.desencolar()
-            print("ha aterrizado el vuelo "+str(pista1)+" en la pista 1")
+            print("Ha aterrizado el vuelo "+str(pista1)+" en la pista 1")
             escribeaterr(pista1)
             time.sleep(0.5)
 
         if(noprio.colavacia()==False):
             pista2 = noprio.desencolar()
-            print("ha aterrizado el vuelo "+str(pista2)+" en la pista 2")
+            print("Ha aterrizado el vuelo "+str(pista2)+" en la pista 2")
             escribeaterr(pista2)
             time.sleep(0.5)
 
         if(prio.colavacia()==False):
             pista3 = prio.desencolar()
-            print("ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
+            print("Ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
             escribeaterr(pista3)
             time.sleep(0.5)
         elif(noprio.colavacia()==False):
             pista3 = noprio.desencolar()
-            print("ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
+            print("Ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
             escribeaterr(pista3)
             time.sleep(0.5)
 
