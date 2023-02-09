@@ -1,37 +1,117 @@
-#Se les asigna pista en función de la posición en la que llegan al aeropuerto (en realidad es según el orden en el que están en el fichero, siendo el sentido desde la posición de arriba de fichero hacia abajo).
-#Los vuelos con prioridad deberán pasar directamente al inicio de la lista, en el mismo orden en el que estaban en el fichero.
-#Pistas:
+import time
 
-#Hay tres pistas:
-#P1 y P2 para los vuelos normales.
-#P3: para los vuelos con prioridad. Si no hay vuelos con prioridad, se podrá usar también como pista de aterrizaje para los vuelos de prioridad normal.
-#Especificaciones:
+class Cola:
 
-#Los vuelos que han aterrizado deberán ir grabándose en orden en un fichero de salida llamado "aterrizados.txt", donde se indica qué vuelo (en el orden correcto) en qué pista ha aterrizado
+    def __init__(self):
+        self.items=[]
 
-#Se deberán implementar con pilas y colas que a su vez deberán estar implementadas con listas enlazadas. Se deja a la estrategia del usuario utilizarla mediante listas enlazadas simples, dobles, circulares, etc.
+    def encolar(self, vuelo):
+        self.items.append(vuelo)
 
-#Se recomienda no usar el .pop, .insert, .append, etc. Y se prohíbe utilizar cualquier librería salvo para visualizar el contenido/posición de los vuelos en formato controlador aéreo real.
+    def desencolar(self):
+        try:
+            return self.items.pop(0)
+        except:
+            raise ValueError("La cola está vacía")
+    
+    def vaciarcola(self):
+        self.items=[]
+    
+    def colavacia(self):
+        if(self.items==[]):
+            return True
+        else:
+            return False
 
-#Se deberán utilizar las funciones apilar,encolar,colavacía,colallena,pilallena,pilavacía,desapilar o desencolar según la estrategia que se utilice. Se podrán añadir a estas tantas funciones como se consideren necesarias.
 
 
-def escribevuelos(vuelo, prioridad):
+def escribevuelos(vuelo, prioridad, lista):
     with open("vuelos_in.txt", "a") as fichero:
         fichero.write(vuelo + prioridad + "\n")
     fichero.close
-
-def vuelosiniciales():
-    escribevuelos("MAD1234", "p")
-    escribevuelos("CON6666", "p")
-    escribevuelos("MOS8642", "n")
-    escribevuelos("TOR2000", "n")
-    escribevuelos("VIE6001", "n")
-    escribevuelos("LON1130", "p")
-    escribevuelos("IBI3478", "n")
-    escribevuelos("BEI5524", "n")
-    escribevuelos("AMS9961", "p")
-    escribevuelos("JAV8346", "n")
+    lista=leefichero("vuelos_in.txt")
+    return lista
 
 
-vuelosiniciales()
+def escribeaterr(vuelo):
+    with open("aterrizajes.txt", "a")as fichero:
+        fichero.write(vuelo+"\n")
+    fichero.close
+
+
+def vuelosiniciales(lista):
+    escribevuelos("MAD1234", "n", lista)
+    escribevuelos("CON6666", "p", lista)
+    escribevuelos("MOS8642", "n", lista)
+    escribevuelos("TOR2000", "n", lista)
+    escribevuelos("VIE6001", "n", lista)
+    escribevuelos("LON1130", "p", lista)
+    escribevuelos("IBI3478", "n", lista)
+    escribevuelos("BEI5524", "n", lista)
+    escribevuelos("AMS9961", "n", lista)
+    escribevuelos("JAV8346", "n", lista)
+
+
+def leefichero(nombrefichero):
+    with open(nombrefichero, "r")as fichero:
+        lineas=fichero.readlines()
+        for i in range(len(lineas)):
+            splieado = lineas[i].split("\n")
+            lineas[i] = splieado[0]
+        fichero.close
+        return lineas
+
+
+def llenacola(lista, cola1, cola2):
+    cola1.vaciarcola()
+    cola2.vaciarcola()
+    for i in range(len(lista)):
+        if(lista[i][-1:]=="p"):
+            cola1.encolar(lista[i])
+    for i in range(len(lista)):
+        if(lista[i][-1:]=="n"):
+            cola2.encolar(lista[i])
+    return(cola1, cola2)
+
+
+def asignapista(prio, noprio):
+    pista1=""
+    pista2=""
+    pista3=""
+    while(prio.colavacia()!=True or noprio.colavacia!=True):
+        if(noprio.colavacia()==False):
+            pista1 = noprio.desencolar()
+            print("ha aterrizado el vuelo "+str(pista1)+" en la pista 1")
+            escribeaterr(pista1)
+            time.sleep(0.5)
+
+        if(noprio.colavacia()==False):
+            pista2 = noprio.desencolar()
+            print("ha aterrizado el vuelo "+str(pista2)+" en la pista 2")
+            escribeaterr(pista2)
+            time.sleep(0.5)
+
+        if(prio.colavacia()==False):
+            pista3 = prio.desencolar()
+            print("ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
+            escribeaterr(pista3)
+            time.sleep(0.5)
+        elif(noprio.colavacia()==False):
+            pista3 = noprio.desencolar()
+            print("ha aterrizado el vuelo "+str(pista3)+" en la pista 3")
+            escribeaterr(pista3)
+            time.sleep(0.5)
+
+        time.sleep(1)
+
+
+colaprioritarios = Cola()
+colanoprioritarios = Cola()
+listavuelos = []
+listavuelos = vuelosiniciales(listavuelos)
+listavuelos = escribevuelos("SPT0666", "n", listavuelos)
+colaprioritarios, colanoprioritarios = llenacola(listavuelos, colaprioritarios, colanoprioritarios)
+listavuelos = escribevuelos("MOS9999", "n", listavuelos)
+colaprioritarios, colanoprioritarios = llenacola(listavuelos, colaprioritarios, colanoprioritarios)
+asignapista(colaprioritarios, colanoprioritarios)
+
