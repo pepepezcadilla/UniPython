@@ -3,45 +3,45 @@ import heapq
 
 def dijkstra(plano, inicio, final):
     # Inicializa las distancias a infinito para todos los vértices excepto el de inicio
-    distanciav = {vertex: float('infinity') for vertex in plano}
+    distanciav = {estaciones: float('infinity') for estaciones in plano}
     distanciav[inicio] = 0
 
     # Inicializa la cola de prioridad con el vértice de inicio
     cola = [(0, inicio)]
 
-    # Inicializa un diccionario para almacenar los predecesores de cada vértice
-    previous = {vertex: None for vertex in plano}
+    # Inicializa un diccionario para almacenar los predecesores de cada vérticeempresa
+    previous = {estaciones: None for estaciones in plano}
 
     # Mientras la cola de prioridad no esté vacía
     while(colavacia(cola)==False):  
         # Toma el vértice con la distancia mínima en la cola
-        (dist, current) = heapq.heappop(cola)
+        (dist, estacionactual) = heapq.heappop(cola)
 
         # Si se ha llegado al vértice destino, detén el bucle
-        if current == final:
+        if estacionactual == final:
             break
 
         # Revisa todos los vecinos del vértice actual
-        for neighbor, weight in plano[current].items():
+        for vecino, recorrido in plano[estacionactual].items():
             # Calcula la distancia a través de este vecino
-            distancia = dist + weight
+            distancia = dist + recorrido
 
             # Si esta distancia es menor que la distancia actual al vecino, actualiza la distancia
-            if distancia < distanciav[neighbor]:
-                distanciav[neighbor] = distancia
-                previous[neighbor] = current
+            if distancia < distanciav[vecino]:
+                distanciav[vecino] = distancia
+                previous[vecino] = estacionactual
                 # Agrega el vecino a la cola de prioridad
-                heapq.heappush(cola, (distancia, neighbor))
+                heapq.heappush(cola, (distancia, vecino))
 
     # Construye la ruta más corta al seguir los predecesores desde el vértice destino hasta el inicio
-    path, current = [], final
-    while current != inicio:
-        path.append(current)
-        current = previous[current]
-    path.append(inicio)
+    rutadij, estacionactual = [], final
+    while estacionactual != inicio:
+        rutadij.append(estacionactual)
+        estacionactual = previous[estacionactual]
+    rutadij.append(inicio)
 
     # Devuelve la distancia mínima y la ruta más corta
-    return distanciav[final], path[::-1]
+    return distanciav[final], rutadij[::-1]
 
 
 def colavacia(cola):
