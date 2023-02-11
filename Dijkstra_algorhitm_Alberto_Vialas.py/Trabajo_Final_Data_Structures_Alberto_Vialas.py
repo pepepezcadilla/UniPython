@@ -43,7 +43,7 @@ def dijkstra(plano, inicio, final):
     # Devuelve la distancia mínima y la ruta más corta
     return distanciav[final], rutadij[::-1]
 
-
+# Comprueba si la cola está llena o vacía
 def colavacia(cola):
     if(cola==[]):
         return True
@@ -51,6 +51,7 @@ def colavacia(cola):
         return False
 
 
+# Grafo con las estaciones de metro disponibles
 grafo = {
             "amersham": {"baker street": 9},
             "chorleywoood": {"amersham": 1, "wembley park": 10},
@@ -59,9 +60,9 @@ grafo = {
             "wembley park": {"chorleywoood": 10, "finchley road": 1, "rayners lane": 5, "stanmore": 4, "west hampstead": 5},
             "finchley road": {"wembley park": 1, "baker street": 1, "west hampstead": 1},
             "baker street": {"finchley road": 2, "kings cross": 3, "paddington": 3, "oxford circus": 2, "edgware road": 1, "bond street": 1},
-            "kings cross": {"baker street": 3, "moortage": 3, "holborn": 2, "finsbury park": 4, "euston": 1, "highbury & islington": 1},
-            "moortage": {"kings cross": 3, "liverpool street": 1, "bank": 1},
-            "liverpool street": {"moortage": 1, "aldgate": 1, "bank": 1, "mile end": 2, "aldgate east": 1, "tower hill": 1},
+            "kings cross": {"baker street": 3, "moorgate": 3, "holborn": 2, "finsbury park": 4, "euston": 1, "highbury & islington": 1},
+            "moorgate": {"kings cross": 3, "liverpool street": 1, "bank": 1},
+            "liverpool street": {"moorgate": 1, "aldgate": 1, "bank": 1, "mile end": 2, "aldgate east": 1, "tower hill": 1},
             "aldgate": {"liverpool street": 1},
             "ealing common": {"rayners lane": 7, "acton town": 1, "ealing broadway": 1},
             "acton town": {"ealing common": 1, "hammersmith": 5, "terminal": 10},
@@ -86,7 +87,7 @@ grafo = {
             "charing cross": {"leicester square": 1, "embankment": 1, "piccadilly circus": 1},
             "embankment": {"charing cross": 1, "waterloo": 1, "westminster": 1, "bank": 5},
             "waterloo": {"embankment": 1, "elephant & castle": 2, "westminster": 1, "london bridge": 2},
-            "bank": {"moortage": 1, "london bridge": 1, "waterloo": 1, "holbourn": 3, "liverpool street": 1,"embankment": 5, "tower hill": 1, "shadwell": 1},
+            "bank": {"moorgate": 1, "london bridge": 1, "waterloo": 1, "holbourn": 3, "liverpool street": 1,"embankment": 5, "tower hill": 1, "shadwell": 1},
             "london bridge": {"bank": 1, "elephant & castle": 2, "waterloo": 2, "canada water": 2},
             "elephant & castle": {"london bridge": 2, "stockwell": 3, "waterloo": 2},
             "stockwell": {"waterloo": 3, "elephant & castle": 3, "morden": 9},
@@ -121,7 +122,7 @@ grafo = {
             "upminster": {"barking": 8},
             "bow": {"mile end": 1, "west ham": 2, "poplar": 1, "stratford": 2},
             "shoreditch": {"whitechapel": 1},
-            "shadwell": {"whitechapel": 1, "canada water": 3, "bank": 1, "tower hill": 1, "poplar": 3,"canary warf": 4},
+            "shadwell": {"whitechapel": 1, "canada water": 3, "bank": 1, "tower hill": 1, "poplar": 3, "canary wharf": 4},
             "canada water": {"shadwell": 3, "new cross": 2, "new cross gate": 2, "london bridge": 2, "canary wharf": 1},
             "new cross": {"canada water": 2},
             "new cross gate": {"canada water": 2},
@@ -136,7 +137,9 @@ grafo = {
             "north woolwich": {"custom house": 2},
         }
 
-distancia, ruta = dijkstra(grafo, "Euston", "Moorgate")
+
+# Inicio del programa
+distancia, ruta = dijkstra(grafo, "green park", "mile end")
 rutafinal=""
 for i in range(len(ruta)):
     rutafinal=rutafinal+str(ruta[i])+"->"
