@@ -139,8 +139,15 @@ grafo = {
 
 
 # Inicio del programa
-distancia, ruta = dijkstra(grafo, "green park", "mile end")
-rutafinal=""
-for i in range(len(ruta)):
-    rutafinal=rutafinal+str(ruta[i])+"->"
-print("La distancia mínima requerida para el trayecto es de "+str(distancia)+", para la cual hay que seguir la siguiente ruta: "+rutafinal[:-2])
+exit = False
+while(exit!=True):
+    inicial = input("De qué estación desea partir? (exit para salir): ")
+    if(inicial=="exit"):
+        exit=True
+    else: 
+        final = input("A qué estación desea llegar?: ")
+        distancia, ruta = dijkstra(grafo, inicial, final)
+        rutafinal=""
+        for i in range(len(ruta)):
+            rutafinal=rutafinal+str(ruta[i])+"->"
+        print("La distancia mínima requerida para el trayecto es de "+str(distancia)+", para la cual hay que seguir la siguiente ruta: "+rutafinal[:-2])
