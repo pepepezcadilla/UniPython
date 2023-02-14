@@ -1,47 +1,55 @@
+#Definimos la función factorial, la cual se llama a si misma para conseguir el factorial de un número
 def factorial (numero):
     if(numero==1):
         return 1
     else:
         return numero*factorial(numero-1)
 
+#Definimos la función multiplicación, la cual se llama a si misma para multiplicar dos números
 def multiplicacion(numero, numero2):
     if numero2 == 1:
         return numero
     else:
         return numero + multiplicacion(numero, numero2-1)
 
+#Definimos la función MCD, la cual se llama a si misma para conseguir el máximo común divisor
 def mcd(numero, numero2):
     if numero2 == 0:
         return numero
     else:
         return mcd(numero2, numero % numero2)
 
+#Definimos la función exponente, la cual se llama a si misma para sacar el exponente dado de un número.
 def exponente(base, exp):
     if exp== 0:
         return 1
     else:
         return base * exponente(base, exp-1)
 
+#Definimos la función fibonacci, la cual se llama a si misma para conseguir la sucesión de fibonacci (x números)
 def fibonacci(n):
     if n < 2:
         return n
     else:
         return fibonacci(n-1) + fibonacci(n-2)
 
+#Definimos la función resta, la cual se llama a si misma para restar dos números
 def resta(numero, numero2):
     if numero2 == 0:
         return numero
     else:
         return resta(numero-1, numero2-1)
 
+#Definimos la función hanoi, la cual va moviendo aros, llamandose a si misma, hasta que todos los aros están en la posición final
 def hanoi(aros, origen, destino, auxiliar):
     if aros == 1:
-        print(f"Mover disco 1 de {origen} a {destino}")
+        print("Mover disco 1 de "+str(origen)+" a "+str(destino))
         return
     hanoi(aros-1, origen, auxiliar, destino)
-    print(f"Mover disco {aros} de {origen} a {destino}")
+    print("Mover disco "+str(aros)+" de "+str(origen)+" a "+str(destino))
     hanoi(aros-1, auxiliar, destino, origen)
 
+#inicio del programa
 exit = False
 while(exit!=True):
     print("------------------------------------")
@@ -73,6 +81,7 @@ while(exit!=True):
         expon=input("Introduzca el exponente: ")
         print(exponente(int(bas), int(expon)))
     elif(opcion==5):
+        #Creamos un for y una lista para obtener sólo los x primeros números de la sucesión de fibonacci
         rango=input("Introduzca los números de la sucesión de fibonacci que desea ver (se recomienda que no sea un número muy alto): ")
         fib = []
         for i in range(int(rango)):
