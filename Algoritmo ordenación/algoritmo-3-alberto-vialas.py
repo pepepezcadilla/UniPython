@@ -13,7 +13,9 @@ def ordenarray(array):
         arrayd = array[centro:]
 
         #Llamada recursiva para ordenar las mitades
+        print("Se llama otra vez a la función de ordenar array con el array de la izquierda")
         ordenarray(arrayi)
+        print("Se llama otra vez a la función de ordenar array con el array de la derecha")
         ordenarray(arrayd)
 
         #Combinación de las mitades ordenadas, vamos comparando ambos array guiados por indices, y los vamos almacenando en el array final.
