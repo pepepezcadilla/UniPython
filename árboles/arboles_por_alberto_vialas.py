@@ -1,14 +1,17 @@
-
+#Creamos la clase Nodo para almacenar los datos
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
         self.izquierda = None
         self.derecha = None
-        
+
+#Creamos la clase ArbolBinario para almacenar los nodos, e implementamos varios métodos:
 class ArbolBinario:
+    #Método constructor para inicializar el árbol
     def __init__(self):
             self.raiz = None
 
+    #Método para insertar nuevos nodos
     def Insertar(self, valor):
         nuevo_nodo = Nodo(valor)
         
@@ -30,7 +33,8 @@ class ArbolBinario:
                     nodo_actual.derecha = nuevo_nodo
                     return
                 nodo_actual = nodo_actual.derecha
-                
+    
+    #Recorremos el árbol hasta encontar el valor deseado
     def BuscarNodo(self, valor):
         nodo_actual = self.raiz
         while nodo_actual is not None:
@@ -44,9 +48,10 @@ class ArbolBinario:
                 nodo_actual = nodo_actual.derecha
         return False
     
+    #Recorremos el árbol para encontar el nodo deseado, lo eliminamos y reorganizamos el árbol
     def EliminarNodo(self, valor):
         nodo_actual = self.raiz
-        nodo_a_eliminar_padre = None  # inicializar la variable
+        nodo_a_eliminar_padre = None
         encontrado = False
         while nodo_actual and not encontrado:
             if valor == nodo_actual.valor:
@@ -92,13 +97,14 @@ class ArbolBinario:
                 else:
                     padre_reemplazo.derecha = None
 
-
+    #Utilizamos recursividad para recorrer el árbol e ir imprimiéndolo
     def mostrar_arbol_inorden(self, nodo):
         if nodo:
             self.mostrar_arbol_inorden(nodo.izquierda)
             print(nodo.valor)
             self.mostrar_arbol_inorden(nodo.derecha)
 
+    #Imprimimos el árbol pero diferenciando entre hijos
     def imprimir_arbol(self, nodo):
         cadena = str(nodo.valor)
         
@@ -119,6 +125,7 @@ class ArbolBinario:
         
         return cadena
 
+#Insertamos unos cuantos nodos
 def insertarinicio(arbol):
     arbol.Insertar(int(5))
     arbol.Insertar(int(4))
@@ -133,10 +140,11 @@ def insertarinicio(arbol):
     return arbol
 
 
-
+#Inicio del programa
 nuevoarbol = ArbolBinario()
 nuevoarbol = insertarinicio(nuevoarbol)
 exit = False
+#Menú para seleccionar opciones
 while(exit!=True):
     print("------------------------------------")
     print("---------Menú-recursividad----------")
@@ -155,7 +163,6 @@ while(exit!=True):
         nuevoarbol.Insertar(nuevonodo)
     elif(opcion==2):
         nodobuscado=int(input("Qué nodo desea buscar?: "))
-        print(nuevoarbol.BuscarNodo(nodobuscado))
         if(nuevoarbol.BuscarNodo(nodobuscado)==True):
             print("El nodo buscado existe")
         else:
