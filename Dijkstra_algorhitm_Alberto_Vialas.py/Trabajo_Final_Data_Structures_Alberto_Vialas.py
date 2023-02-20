@@ -140,6 +140,7 @@ grafo = {
 
 # Inicio del programa
 exit = False
+print(len(grafo.keys["poplar"].items))
 while(exit!=True):
     inicial = input("De qué estación desea partir? (exit para salir): ")
     if(inicial=="exit"):

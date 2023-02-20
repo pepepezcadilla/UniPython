@@ -3,7 +3,6 @@ import random
 def crealaberinto():
     # Generar un número aleatorio de intersecciones (entre 5 y 15)
     num_intersecciones = random.randint(5, 15)
-    conexiones_creadas = {}
     
     # Crear la entrada y las dos salidas (intersecciones 0, num_intersecciones+1 y num_intersecciones+2)
     entrada = {"id": 0, "conexiones": [{"id": 1, "longitud": random.randint(1, 10), "direccion": "i"}]}
@@ -17,7 +16,7 @@ def crealaberinto():
         # Elegir aleatoriamente las intersecciones a las que se va a conectar
         conexiones = []
         while len(conexiones) < 2:
-            conexion = random.randint(0, num_intersecciones)
+            conexion = random.randint(1, num_intersecciones)
             if conexion != i and not any([c["id"] == conexion for c in conexiones]):
                 conexiones.append({"id": conexion, "longitud": random.randint(1, 10), "direccion": random.choice(["i", "iv"])})
         interseccion = {"id": i, "conexiones": conexiones}
