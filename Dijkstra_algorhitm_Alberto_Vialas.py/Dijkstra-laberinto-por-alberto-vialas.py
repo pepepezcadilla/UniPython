@@ -1,42 +1,66 @@
 import heapq
 
-def dijkstra(plano, inicio, final):
+def matriz(graph):
+    vertices = list(graph.keys())
+    N = len(vertices)
+
+    # Inicializar la matriz con ceros
+    adj_matrix = [[0 for _ in range(N)] for _ in range(N)]
+
+    # Recorrer el grafo y asignar el peso de cada arista a la posición correspondiente en la matriz
+    for i in range(N):
+        for j in range(N):
+            if vertices[i] in graph and vertices[j] in graph[vertices[i]]:
+                adj_matrix[i][j] = graph[vertices[i]][vertices[j]]
+
+    # Imprimir la matriz de adyacencia
+    for row in adj_matrix:
+        print(row)
+    
+    return adj_matrix
+
+def dijkstra(matriz_ady, inicio, final):
     # Inicializa las distancias a infinito para todos los vértices excepto el de inicio
-    distanciav = {estaciones: float('infinity') for estaciones in plano}
+    distanciav = [float('infinity')] * len(matriz_ady)
     distanciav[inicio] = 0
 
     # Inicializa la cola de prioridad con el vértice de inicio
     cola = [(0, inicio)]
 
     # Inicializa un diccionario para almacenar los predecesores de cada estación
-    previous = {estaciones: None for estaciones in plano}
+    previous = [None] * len(matriz_ady)
 
     # Mientras la cola de prioridad no esté vacía
-    while(colavacia(cola)==False):  
+    while cola:
         # Toma el vértice con la distancia mínima en la cola
-        (dist, estacionactual) = heapq.heappop(cola)
+        (dist, nodoactual) = heapq.heappop(cola)
 
         # Si se ha llegado al vértice destino, detén el bucle
-        if estacionactual == final:
+        if nodoactual == final:
             break
 
         # Revisa todos los vecinos del vértice actual
-        for vecino, recorrido in plano[estacionactual].items():
+        vecinos = []
+        for i in range(len(matriz_ady)):
+            if matriz_ady[nodoactual][i] > 0:
+                vecinos.append(i)
+
+        for vecino in vecinos:
             # Calcula la distancia a través de este vecino
-            distancia = dist + recorrido
+            distancia = dist + matriz_ady[nodoactual][vecino]
 
             # Si esta distancia es menor que la distancia actual al vecino, actualiza la distancia
             if distancia < distanciav[vecino]:
                 distanciav[vecino] = distancia
-                previous[vecino] = estacionactual
+                previous[vecino] = nodoactual
                 # Agrega el vecino a la cola de prioridad
                 heapq.heappush(cola, (distancia, vecino))
 
     # Construye la ruta más corta al seguir los predecesores desde el vértice destino hasta el inicio
-    rutadij, estacionactual = [], final
-    while estacionactual != inicio:
-        rutadij.append(estacionactual)
-        estacionactual = previous[estacionactual]
+    rutadij, nodoactual = [], final
+    while nodoactual != inicio:
+        rutadij.append(nodoactual)
+        nodoactual = previous[nodoactual]
     rutadij.append(inicio)
 
     # Devuelve la distancia mínima y la ruta más corta
@@ -60,9 +84,10 @@ grafo = {
 
 
 # Inicio del programa
-inicial = "a"
-final = "d"
-distancia, ruta = dijkstra(grafo, inicial, final)
+inicial = 0
+final = 3
+laberinto = matriz(grafo)
+distancia, ruta = dijkstra(laberinto, inicial, final)
 rutafinal=""
 for i in range(len(ruta)):
     rutafinal=rutafinal+str(ruta[i])+"->"
