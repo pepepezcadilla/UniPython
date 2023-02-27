@@ -1,6 +1,5 @@
 import heapq
 
-
 def dijkstra(plano, inicio, final):
     # Inicializa las distancias a infinito para todos los vértices excepto el de inicio
     distanciav = {estaciones: float('infinity') for estaciones in plano}
