@@ -14,13 +14,14 @@ def capicua(numero):
 #Inicio del programa
 contadort = 0
 total_sum = 0
+maximo=int(input("Cuántos números desea sumar? "))
 actual = 2
 
-while contadort < 20:
+while contadort < maximo:
     if primo(actual) and capicua(actual):
         contadort += 1
         total_sum += actual
         print(actual)
     actual += 1
 
-print("La suma de los primeros 20 números primos capicúa es:"+str(total_sum))
+print("La suma de los primeros "+str(maximo)+" números primos capicúa es: "+str(total_sum))
