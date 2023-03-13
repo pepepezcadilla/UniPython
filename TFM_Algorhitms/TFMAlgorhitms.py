@@ -1,4 +1,4 @@
-#Iportamos varias librerías, para acceder a internet, para cálculos, etc.
+#Importamos varias librerías, para acceder a internet, para cálculos, etc.
 import requests #Hay que instalar esta librería, cmd en la carpeta "Python\Python310\Scripts", pip install requests
 import json
 import random
