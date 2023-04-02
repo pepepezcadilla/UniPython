@@ -18,7 +18,7 @@ class Persona:
         if(int(self.edad)>18):
             return True
     
-    #Método que coomprueba el sexo introducido, y si no es válido, lo modifica
+    #Método que comprueba el sexo introducido, y si no es válido, lo modifica
     def comprobarSexo(self):
         exit=False
         while(exit!=True):
