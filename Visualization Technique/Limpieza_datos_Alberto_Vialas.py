@@ -1,61 +1,57 @@
 import re
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plot
 
-# Paso 1: Limpieza de los datos
-with open('datos_borrador.pgn', 'r') as file:
-    data = file.read()
+# Leemos los datos
+with open('datos_borrador.pgn', 'r') as archivo:
+    datos = archivo.read()
 
 # Utilizamos expresiones regulares para eliminar las cabeceras de las partidas
-cleaned_data = re.sub(r'\[[^\]]+\]\n', '', data)
+datos_limpios = re.sub(r'\[[^\]]+\]\n', '', datos)
 
-# Paso 2: Visualización de datos
-# Obtener el número de partidas por cada apertura
-opening_counts = {}
-opening_responses = {}
-games = cleaned_data.strip().split('\n\n')  # Separar las partidas
-for game in games:
-    moves = game.strip().split()[1:]  # Ignorar el número de partida y capturar los movimientos
-    if len(moves) < 1:
-        continue  # Saltar partidas sin movimientos registrados
-    opening = moves[0]
-    opening_counts[opening] = opening_counts.get(opening, 0) + 1
+# Obtenemos el número de partidas por cada apertura
+conteo_aperturas = {}
+respuestas_aperturas = {}
+partidas = datos_limpios.strip().split('\n\n')  # Separamos las partidas
+for partida in partidas:
+    movimientos = partida.strip().split()[1:]  # Ignoramos el número de partida y capturamos los movimientos
+    if len(movimientos) < 1:
+        continue  # Saltamos partidas sin movimientos registrados
+    apertura = movimientos[0]
+    conteo_aperturas[apertura] = conteo_aperturas.get(apertura, 0) + 1
 
-    if opening not in opening_responses:
-        opening_responses[opening] = {}
+    if apertura not in respuestas_aperturas:
+        respuestas_aperturas[apertura] = {}
 
-    if len(moves) > 1:
-        response = moves[1]
-        opening_responses[opening][response] = opening_responses[opening].get(response, 0) + 1
+    if len(movimientos) > 1:
+        respuesta = movimientos[1]
+        respuestas_aperturas[apertura][respuesta] = respuestas_aperturas[apertura].get(respuesta, 0) + 1
 
-# Ordenar las aperturas por número de partidas
-sorted_openings = sorted(opening_counts.items(), key=lambda x: x[1], reverse=True)
-
-# Excluir la etiqueta 'No Data'
-sorted_openings = [(opening, count) for opening, count in sorted_openings if opening != 'No Data']
+# Ordenamos las aperturas por número de partidas
+aperturas_ordenadas = sorted(conteo_aperturas.items(), key=lambda x: x[1], reverse=True)
 
 # Gráfico de barras para el número de partidas por apertura
-openings, counts = zip(*sorted_openings)
-plt.figure(figsize=(12, 6))
-plt.bar(openings, counts)
-plt.xticks(rotation=90)
-plt.xlabel('Apertura')
-plt.ylabel('Número de Partidas')
-plt.title('Número de Partidas por Apertura')
-plt.tight_layout()
-plt.show()
+aperturas, conteos = zip(*aperturas_ordenadas)
+plot.figure(figsize=(12, 6))
+plot.bar(aperturas, conteos)
+plot.xticks(rotation=90)
+plot.xlabel('Apertura')
+plot.ylabel('Número de Partidas')
+plot.title('Número de Partidas por Apertura')
+plot.tight_layout()
+plot.show()
 
 # Gráfico de barras para las respuestas más comunes para las cuatro aperturas más utilizadas
-top_openings = [opening for opening, _ in sorted_openings[:4]]
-plt.figure(figsize=(12, 8))
-for i, opening in enumerate(top_openings):
-    responses = opening_responses[opening]
-    sorted_responses = sorted(responses.items(), key=lambda x: x[1], reverse=True)
-    top_responses = dict(sorted_responses[:5])  # Mostrar las 5 respuestas más comunes por apertura
-    plt.subplot(2, 2, i + 1)
-    plt.bar(top_responses.keys(), top_responses.values())
-    plt.xticks(rotation=90)
-    plt.xlabel('Respuesta')
-    plt.ylabel('Número de Respuestas')
-    plt.title(f'Respuestas para {opening}')
-plt.tight_layout()
-plt.show()
+top_aperturas = [apertura for apertura, _ in aperturas_ordenadas[:4]]
+plot.figure(figsize=(12, 8))
+for i, apertura in enumerate(top_aperturas):
+    respuestas = respuestas_aperturas[apertura]
+    respuestas_ordenadas = sorted(respuestas.items(), key=lambda x: x[1], reverse=True)
+    top_respuestas = dict(respuestas_ordenadas[:5])  # Mostrar las 5 respuestas más comunes por apertura
+    plot.subplot(2, 2, i + 1)
+    plot.bar(top_respuestas.keys(), top_respuestas.values())
+    plot.xticks(rotation=90)
+    plot.xlabel('Respuesta')
+    plot.ylabel('Número de Respuestas')
+    plot.title(f'Respuestas para {apertura}')
+plot.tight_layout()
+plot.show()
