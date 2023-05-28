@@ -2,7 +2,7 @@ import re
 import matplotlib.pyplot as plot
 
 # Leemos los datos
-with open('datos_borrador.pgn', 'r') as archivo:
+with open('Datos-borrador.pgn', 'r') as archivo:
     datos = archivo.read()
 
 # Utilizamos expresiones regulares para eliminar las cabeceras de las partidas
