@@ -141,6 +141,7 @@ def obtener_dni_empleados_proyecto_1():
         ) AND SALARIO > 2000
     ''')
     dni_list = c.fetchall()
+    dni_list = ', '.join(str(item[0]) for item in dni_list)
 
     # Cerrar la conexión
     conn.close()
@@ -164,6 +165,7 @@ def obtener_dni_empleados_proyecto_2():
         ) AND SALARIO > 3000
     ''')
     dni_list = c.fetchall()
+    dni_list = ', '.join(str(item[0]) for item in dni_list)
 
     # Cerrar la conexión
     conn.close()
@@ -188,6 +190,7 @@ def obtener_bancos_empleados_mayor_4000():
     ''')
 
     bank_list = c.fetchall()
+    bank_list = ', '.join(str(item[0]) for item in bank_list)
 
     # Cerrar la conexión
     conn.close()
@@ -203,6 +206,7 @@ def obtener_empleados_en_ambas_tablas():
     # Obtener el dni de los empleados que están en la tabla Empleados y en la tabla i+d+i
     c.execute('SELECT CAST(E.DNI AS INTEGER) FROM EMPLEADOS E, I_D_I I WHERE E.ID = I.II_IDEMPLEADOS')
     dni_list = c.fetchall()
+    dni_list = ', '.join(str(item[0]) for item in dni_list)
 
     # Cerrar la conexión
     conn.close()
@@ -219,6 +223,7 @@ def obtener_empleados_no_en_tabla_empleados():
     c.execute("SELECT DISTINCT II_IDEMPLEADOS FROM I_D_I WHERE II_IDEMPLEADOS NOT IN (SELECT ID FROM EMPLEADOS)")
 
     dni_list = c.fetchall()
+    dni_list = ', '.join(str(item[0]) for item in dni_list)
 
     # Cerrar la conexión
     conn.close()
@@ -235,6 +240,7 @@ def obtener_todos_los_id_empleados():
     c.execute("SELECT ID FROM EMPLEADOS UNION SELECT II_IDEMPLEADOS FROM I_D_I")
 
     dni_list = c.fetchall()
+    dni_list = ', '.join(str(item[0]) for item in dni_list)
 
     # Cerrar la conexión
     conn.close()
