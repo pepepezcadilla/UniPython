@@ -75,8 +75,23 @@ def handle_client(client):
 
 # Función para que la máquina realice un movimiento aleatorio
 def machine_move(board):
-    empty_cells = [(r, c) for r in range(3) for c in range(3) if board[r * 3 + c] == ""]
-    return random.choice(empty_cells)
+    empty_cells = []
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == "":
+                empty_cells.append([i, j])
+    print(empty_cells)
+    a = random.choice(empty_cells)
+    print(a)
+    return a
+
+def update_board(board, row, col, symbol):
+    if board[row][col] == "":
+        board[row][col] = symbol
+    board_json = json.dumps(board)
+    print(board_json)
+    broadcast("Board:" + board_json, "Anonimous")
+
 # Funcion para cambiar de jugador
 def changePlayer(current_player, player1, player2):
     if current_player == player1:
@@ -87,6 +102,20 @@ def changePlayer(current_player, player1, player2):
     else: 
         current_player = player1
     broadcast('Cambio', 'Anonymous')
+    return current_player
+
+def check_winner(board, symbol):
+    # Comprobar filas y columnas
+    for i in range(3):
+        if all(board[i][j] == symbol for j in range(3)) or all(board[j][i] == symbol for j in range(3)):
+            return True
+
+    # Comprobar diagonales
+    if all(board[i][i] == symbol for i in range(3)) or all(board[i][2 - i] == symbol for i in range(3)):
+        return True
+
+    return False
+
 # Función para transmitir mensajes a todos los clientes
 def broadcast(message, sender_client):
     # Crear una copia del diccionario
@@ -135,7 +164,6 @@ def start_game(client, game_mode):
     global player1, player2
     player1 = players[1]
     player2 = players[2]
-
     # Asigna el símbolo correspondiente a cada jugador
     symbol1 = "X"
     symbol2 = "O"
@@ -147,7 +175,7 @@ def start_game(client, game_mode):
         client2.send(f"Symbol:{symbol2}".encode())
     time.sleep(0.5)
     # Tablero de juego
-    board = [""] * 9
+    board = [["", "", ""],["", "", ""],["", "", ""]]
     current_player = player1
     current_client = client1
     print(players)
@@ -159,32 +187,16 @@ def start_game(client, game_mode):
             move = current_client.recv(1024).decode()
             print(f"{name} ha realizado un movimiento: {move[5:]}")
             row, col = map(int, move[5:])
+            print(row,"     ",  col)
 
         index = row * 3 + col
-
-        #if board[index] == "":
-            #   board[index] = symbol1 if current_player == player1 else symbol2
-            #  broadcast(f"Board:{''.join(board)}", current_client)
-#
-#               if check_winner(board, symbol1):
-#                  update_ranking(player1, player1)
-#                 broadcast(f"Result:{player1}", current_client)
-#                return
-    #           elif check_winner(board, symbol2):
-    #              update_ranking(player2, player2)
-    #             broadcast(f"Result:{player2}", current_client)
-    #            return
-        #       elif "" not in board:
-        #          update_ranking(player1, "Draw")
-        #         update_ranking(player2, "Draw")
-        #        broadcast("Result:Draw", current_client)
-            #       return
-
-        # Muestra el tablero después del movimiento
-        #broadcast(f"Board:{''.join(board)}", current_client)
+        print(board[2][1])
+        if current_player == player1:
+            update_board(board, row, col, "X")
+        else:
+            update_board(board, row, col, "O")
 
         # Cambio de jugador
-        print(current_player)
         current_player = changePlayer(current_player, player1, player2)
 
         if current_player == "maquina" and game_mode == "M":

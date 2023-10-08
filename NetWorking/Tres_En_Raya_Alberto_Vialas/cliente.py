@@ -75,13 +75,14 @@ def send_move(row, col):
         client.send(move.encode())
 
 # Función para manejar los movimientos recibidos del servidor
-def handle_move(move):
+def handle_move(board):
     if not game_over:
-        row, col = int(move[5]), int(move[6])
-        button = buttons[row][col]
-        if button["text"] == "":
-            button["text"] = symbol
-            check_game_over()
+        print(board)
+        for i in range(3):
+            for j in range(3):
+                buttons[i][j]["text"] = str(board[i][j])
+                root.update()
+            check_game_over(board)
 
 # Función para comprobar si el juego ha terminado
 def check_game_over():
@@ -94,6 +95,8 @@ def check_game_over():
     game_over = True
     client.send("Result:Draw".encode())
     show_result("Draw")
+
+
 
 # Función para mostrar un mensaje de ganador o empate
 def show_result(result):
@@ -125,6 +128,8 @@ def game_flow():
             
             elif message.startswith("Board:"):
                 board = message.split(":")[1]
+                board = json.loads(board)
+                print(board)
                 # Actualiza el tablero con la información recibida
                 handle_move(board)
             
