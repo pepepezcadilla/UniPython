@@ -3,7 +3,6 @@ import tkinter as tk
 from tkinter import messagebox
 import threading
 import json
-import time
 
 # Función para solicitar el modo de juego al usuario
 def choose_game_mode():
@@ -77,12 +76,11 @@ def send_move(row, col):
 # Función para manejar los movimientos recibidos del servidor
 def handle_move(board):
     if not game_over:
-        print(board)
         for i in range(3):
             for j in range(3):
                 buttons[i][j]["text"] = str(board[i][j])
                 root.update()
-            check_game_over(board)
+            check_game_over()
 
 # Función para comprobar si el juego ha terminado
 def check_game_over():
@@ -96,14 +94,12 @@ def check_game_over():
     client.send("Result:Draw".encode())
     show_result("Draw")
 
-
-
 # Función para mostrar un mensaje de ganador o empate
 def show_result(result):
     if result == "Draw":
         messagebox.showinfo("¡Empate!", "El juego ha terminado en empate.")
     else:
-        messagebox.showinfo("¡Ganador!", f"El ganador es el jugador {result}.")
+        messagebox.showinfo("¡Ganador!", f"{result}.")
     root.quit()
 
 # Función para manejar el flujo del juego
@@ -111,10 +107,8 @@ def game_flow():
     global current_player, game_started, game_over, clicked_button, symbol
     clicked_button = tk.StringVar()
     while not game_over:
-        print('again')
         try:
             message = client.recv(1024).decode()
-            print(message)
             if message.startswith("Symbol:"):
                 symbol = message.split(":")[1]
                 if symbol == "X":
@@ -129,7 +123,6 @@ def game_flow():
             elif message.startswith("Board:"):
                 board = message.split(":")[1]
                 board = json.loads(board)
-                print(board)
                 # Actualiza el tablero con la información recibida
                 handle_move(board)
             
@@ -148,7 +141,6 @@ def game_flow():
 # Esperar hasta que el juego haya comenzado
 while True:
     game_status = client.recv(1024).decode()
-    print(game_status)
     if game_status == 'GameStart':
         print("El juego ha comenzado.")
         break
