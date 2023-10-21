@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Galería de Arte</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#exposiciones">Exposiciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <div id="exposiciones">
+            <!-- Pestañas de exposiciones con Bootstrap -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="exposicion1-tab" data-toggle="tab" href="#exposicion1" role="tab" aria-controls="exposicion1" aria-selected="true">Exposición 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="exposicion2-tab" data-toggle="tab" href="#exposicion2" role="tab" aria-controls="exposicion2" aria-selected="false">Exposición 2</a>
+                </li>
+                <!-- Agregar más exposiciones según sea necesario -->
+            </ul>
+            
+            <!-- Contenido de las pestañas de exposiciones -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="exposicion1" role="tabpanel" aria-labelledby="exposicion1-tab">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img src="https://hips.hearstapps.com/hmg-prod/images/jean-paul-marat-murdered-in-his-bath-13-july-1793-painting-news-photo-1676884882.jpg?resize=980:*" alt="Obra 1">
+                                <p>Obra 1</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img src="images/obra2.jpg" alt="Obra 2">
+                                <p>Obra 2</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img src="images/obra3.jpg" alt="Obra 3">
+                                <p>Obra 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="exposicion2" role="tabpanel" aria-labelledby="exposicion2-tab">
+                    <!-- Contenido de la segunda exposición -->
+                </div>
+                <!-- Agregar contenido para más exposiciones según sea necesario -->
+            </div>
+        </div>
+
+        <div id="contacto">
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="exposicionFavorita">Exposición Favorita:</label>
+                    <select class="form-control" id="exposicionFavorita" required>
+                        <option value="Exposición 1">Exposición 1</option>
+                        <option value="Exposición 2">Exposición 2</option>
+                        <!-- Agregar más opciones según sea necesario -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" id="generarEntrada">Generar Entrada</button>
+            </form>
+            <div id="entradas">
+                <!-- El link generado aparecerá aquí -->
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
