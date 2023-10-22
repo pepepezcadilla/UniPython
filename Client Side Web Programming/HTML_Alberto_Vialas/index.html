@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alberto Vialás Paumard">
+    <meta name="description" content="Primer ejercicio HTML">
+    <title>Ejercicio HTML-1</title>
+    <!-- Enlaces de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace al script -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1>Ejercicio HTML-1</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="segunda_parte.html">Segunda Parte</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container my-4">
+        <section class="mb-4">
+            <h1>Encabezado de ejemplo</h1>
+            <h2>Texto de ejemplo</h2>
+            <p>Este es un párrafo de texto normal.</p>
+        </section>
+        <section class="bg-light p-4">
+            <h3>Texto enfatizado</h3>
+            <p><em>Texto enfatizado</em></p>
+        </section>
+        <section class="bg-success text-white p-4">
+            <h3>Texto fuerte</h3>
+            <p><strong>Texto fuerte</strong></p>
+            <p><b>Texto en negrita</b></p>
+        </section>
+        <section class="bg-info text-white p-4">
+            <p><i>Texto en cursiva</i></p>
+            <p><u>Este texto está subrayado</u></p>
+        </section>
+        <section class="bg-warning text-white p-4">
+            <p>H<sub>2</sub>O es la fórmula del agua.</p>
+            <p>2<sup>3</sup> significa "dos al cubo".</p>
+        </section>
+        <section class="bg-secondary text-white p-4">
+            <p><mark>Este texto está resaltado</mark></p>
+        </section>
+        <section class="bg-light p-4">
+            <h2>Tabla</h2>
+            <table id="tabla" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Encabezado 1</th>
+                        <th>Encabezado 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dato 1</td>
+                        <td>Dato 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="bg-primary text-white p-4">
+            <h2>Listas</h2>
+            <ul id="lista-no-ordenada">
+                <li>Elemento de lista 1</li>
+                <li>Elemento de lista 2</li>
+                <li>Elemento de lista 3</li>
+            </ul>
+            <ol id="lista-ordenada">
+                <li>Elemento numerado 1</li>
+                <li>Elemento numerado 2</li>
+                <li>Elemento numerado 3</li>
+            </ol>
+            <dl id="lista-definicion">
+                <dt>Término 1</dt>
+                <dd>Definición 1</dd>
+                <dt>Término 2</dt>
+                <dd>Definición 2</dd>
+                <dt>Término 3</dt>
+                <dd>Definición 3</dd>
+            </dl>
+        </section>
+        
+        <section class="bg-info text-white p-4">
+            <h2>Imagen</h2>
+            <img id="imagen" src="https://cursos.tienda/wp-content/uploads/2020/01/HTML5.jpg" alt="Descripción de la imagen" class="img-fluid">
+        </section>
+        <section class="bg-success text-white p-4">
+            <h2>Enlaces</h2>
+            <p><a href="segunda_parte.html" class="text-white">Enlace a otra página creada por mí</a></p>
+            <p><a href="https://es.wikipedia.org/wiki/HTML5" target="_blank" class="text-white">Enlace a página externa en nueva pestaña</a></p>
+        </section>
+        <section class="bg-light p-4">
+            <h2>Formulario de Registro</h2>
+            <form action="procesar_formulario.php" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Ej. ejemplo@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" class="form-control" min="18" max="99" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" class="form-control" required>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <input type="submit" value="Registrarse" class="btn btn-primary">
+            </form>
+        </section>
+    </main>
+    <footer class="bg-dark text-white py-2 text-center">
+        <p>&copy; 2023 Primera parte</p>
+        <a id="footerLink" href="https://es.wikipedia.org/wiki/HTML5" target="_blank" class="text-white">Enlace de pie de página</a>
+    </footer>
+</body>
+
+</html>
