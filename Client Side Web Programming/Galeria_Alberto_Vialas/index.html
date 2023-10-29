@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Arte</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -19,30 +17,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="nav nav-tabs" id="exposicionTabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" href="#exposiciones">Exposiciones</a>
+                        <a class="nav-link active" id="exposicion1-tab" data-toggle="tab" href="#exposicion1" role="tab" aria-controls="exposicion1" aria-selected="true">Exposición 1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
+                        <a class="nav-link" id="exposicion2-tab" data-toggle="tab" href="#exposicion2" role="tab" aria-controls="exposicion2" aria-selected="false">Exposición 2</a>
                     </li>
                 </ul>
+                
             </div>
         </nav>
     </header>
 
     <div class="container mt-4">
         <div id="exposiciones">
-            <!-- Pestañas de exposiciones con Bootstrap -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="exposicion1-tab" data-toggle="tab" href="#exposicion1" role="tab" aria-controls="exposicion1" aria-selected="true">Exposición 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="exposicion2-tab" data-toggle="tab" href="#exposicion2" role="tab" aria-controls="exposicion2" aria-selected="false">Exposición 2</a>
-                </li>
-                <!-- Agregar más exposiciones según sea necesario -->
-            </ul>
             
             <!-- Contenido de las pestañas de exposiciones -->
             <div class="tab-content" id="myTabContent">
@@ -50,28 +39,50 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="artwork">
-                                <img src="https://hips.hearstapps.com/hmg-prod/images/jean-paul-marat-murdered-in-his-bath-13-july-1793-painting-news-photo-1676884882.jpg?resize=980:*" alt="Obra 1">
+                                <img class="imagen" src="https://hips.hearstapps.com/hmg-prod/images/jean-paul-marat-murdered-in-his-bath-13-july-1793-painting-news-photo-1676884882.jpg?resize=980:*" alt="Obra 1">
                                 <p>Obra 1</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="artwork">
-                                <img src="images/obra2.jpg" alt="Obra 2">
+                                <img class="imagen" src="https://th.bing.com/th/id/OIP.rrw4T9Oh7X_nTLtrzoZ6kQHaHY?pid=ImgDet&rs=1&adlt=strict" alt="Obra 2">
                                 <p>Obra 2</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="artwork">
-                                <img src="images/obra3.jpg" alt="Obra 3">
+                                <img class="imagen" src="https://th.bing.com/th/id/R.555181859ee5a2aea05a8aa0eece6484?rik=F0NWsrwSzNNRCg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-rVFw6ChTQ7E%2fUbcNrQeUXHI%2fAAAAAAAAZ24%2fqbJVPmYLM70%2fs1600%2fcuadros-de-caballos-pintados-al-oleo%2b(2).jpg&ehk=P8pcY6Kshb4ks6Q5i7LlFjBU%2fZb%2fuXaIuMKHOEIhom8%3d&risl=&pid=ImgRaw&r=0&adlt=strict" alt="Obra 3">
                                 <p>Obra 3</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="exposicion2" role="tabpanel" aria-labelledby="exposicion2-tab">
-                    <!-- Contenido de la segunda exposición -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img class="imagen" src="https://th.bing.com/th/id/OIP.zy0glo42kgxasTBjEcbjRQHaLH?pid=ImgDet&rs=1&adlt=strict" alt="Obra 1">
+                                <p>Obra 1</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img class="imagen" src="https://martinchecaartasu.com/wp-content/uploads/2019/01/fig3bellasartes-1024x862.jpg" alt="Obra 2">
+                                <p>Obra 2</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="artwork">
+                                <img class="imagen" src="https://th.bing.com/th/id/R.100aa0e78e78c85cae743819babe6869?rik=yhqAPKQ3XkC9Vw&riu=http%3a%2f%2f1.bp.blogspot.com%2f-Zhpz4vZ_B_w%2fUXQl2XIfbFI%2fAAAAAAAAPOA%2f8fIi3ha15Vg%2fs1600%2fma19.jpg&ehk=rjzeeuoq%2f%2bPkvAGbIyHw%2fbhEoBW7z7McQIRw3Z%2bdlZQ%3d&risl=&pid=ImgRaw&r=0&adlt=strict" alt="Obra 3">
+                                <p>Obra 3</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Agregar contenido para más exposiciones según sea necesario -->
+            </div>
+            <div id="modal" class="modal">
+                <span class="close" id="cerrar">&times;</span>
+                <img class="modal-content" id="imagen-modal">
             </div>
         </div>
 

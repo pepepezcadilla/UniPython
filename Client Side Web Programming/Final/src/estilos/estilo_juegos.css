@@ -1,0 +1,171 @@
+#icono {
+    width: 100px;
+    height: 60px;
+}
+
+.game-images {
+    width: 100%;
+}
+.carousel-item {
+    display: inline-block;
+    max-width: 100%; /* Asegura que las imágenes no superen el 100% del ancho del carrusel */
+    height: auto; /* Mantén la proporción original de las imágenes */
+}
+
+
+.carousel .carousel-control-prev {
+    position: absolute;
+    left: -15%;
+    z-index: 1;
+    color: #0a0a0a !important;
+    background-color: #0a0a0a;
+    font-weight: bold;
+
+}
+  
+.carousel .carousel-control-next {
+    position: absolute;
+    right: -15%;
+    z-index: 1;
+    color: #0a0a0a !important;
+    background-color: #0a0a0a;
+    font-weight: bold;
+}
+
+.juegos-main {
+    width: 100% !important;
+    margin-left: 0vw;
+}
+
+.carousel-caption h3 {
+    font-size: 24px; /* Cambia el tamaño de fuente del título */
+    color: #f7f8f9; /* Cambia el color del título*/
+}
+
+.carousel-caption p {
+    font-size: 16px; /* Cambia el tamaño de fuente del párrafo */
+    color: #666; /* Cambia el color del párrafo*/
+}
+
+.navbar {
+    background-color: #9cd78e;
+    position:relative;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Cambio el color al hacer click */
+.navbar a:hover {
+    background-color: #dddddd;
+    color: black;
+}
+.botonesJuegos {
+    max-width: 10vw;
+}
+
+/* Column container */
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    font-size: 15px;
+}
+
+#logo {
+    width: 140px;
+    height: 80px;
+}
+
+#enlaces {
+    list-style: none;
+}
+
+#boton {
+    background-color: #9cd78e;
+}
+
+@media (max-width: 600px) {
+    .carousel .carousel-control-prev {
+      left: 0%;
+      color: #ffffff !important;
+    }
+  
+    .carousel .carousel-control-next {
+      right: 0%;
+      color: #ffffff !important;
+    }
+    .row, .navbar {   
+        flex-direction: column;
+    }
+
+    /* Cambia la imagen de fondo para dispositivos móviles */
+    .main {
+        background-image: url(archivos/imagenes/Espacio\ star\ wars-mobile.webp);
+        max-width: 100%;
+    }
+    table {
+        width: 100%; /* Hace que la tabla ocupe el ancho completo en dispositivos móviles */
+    }
+
+    td {
+        text-align: center; /* Centra el contenido en las celdas */
+    }
+
+    th {
+        display: none; /* Oculta las cabeceras de la tabla en dispositivos móviles si es necesario */
+    }
+
+    .header img,
+    .main img {
+        max-width: 100%; /* Hace que las imágenes se ajusten al ancho de la pantalla */
+        height: auto; /* Mantiene la relación de aspecto */
+        display: block; /* Elimina cualquier margen o relleno adicional */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    .side {
+        flex: 100%; /* Haz que la columna ocupe el 100% del ancho en dispositivos móviles */
+        padding: 20px;
+        text-align: center; /* Centra el contenido en dispositivos móviles */
+    }
+
+    .side img {
+        max-width: 100%; /* Ajusta el ancho de las imágenes al 100% del ancho de la columna */
+        height: auto; /* Mantiene la relación de aspecto de las imágenes */
+        display: block; /* Elimina cualquier margen o relleno adicional de las imágenes */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    form {
+        max-width: 100%; /* Ajusta el ancho del formulario al 100% de la pantalla */
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%; /* Ajusta el ancho de los campos de entrada al 100% del formulario */
+    }
+}
