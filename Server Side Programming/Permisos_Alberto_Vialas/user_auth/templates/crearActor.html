@@ -1,0 +1,16 @@
+<!-- crearActor.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Actor</title>
+</head>
+<body>
+    <h2>Crear Actor</h2>
+    <form method="post" action="{% url 'crear_actor' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Crear Actor">
+    </form>
+</body>
+</html>

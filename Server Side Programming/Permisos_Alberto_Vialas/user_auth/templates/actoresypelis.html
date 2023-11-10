@@ -1,0 +1,39 @@
+<!-- admin_page.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Administrador</title>
+</head>
+<body>
+    <h2>Bienvenido, {{ user_type }}</h2>
+    
+    <h3>Lista de Actores:</h3>
+    <ul>
+        {% for actor in actores %}
+            <li>{{ actor.nombre }} - Películas:
+                <ul>
+                    {% for pelicula in actor.peliculas.all %}
+                        <li>{{ pelicula.titulo }} ({{ pelicula.año }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if user_type == 'admin' %}
+        <button onclick="redirectCrearActor()">Crear Actor</button>
+        <button onclick="redirectCrearPelicula()">Crear Película</button>
+    {% endif %}
+
+    <script>
+        function redirectCrearActor() {
+            window.location.href = "{% url 'crear_actor' %}";
+        }
+
+        function redirectCrearPelicula() {
+            window.location.href = "{% url 'crear_pelicula' %}";
+        }
+    </script>
+</body>
+</html>
