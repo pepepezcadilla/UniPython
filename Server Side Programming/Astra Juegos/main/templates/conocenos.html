@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Miguel Garcia Redondo">
+    <title>Astra Juegos</title>
+
+    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/estilos/estilo_juegos_miguel.css" media="screen"/>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+    <!-- Navigation Bar -->
+    <nav id="subir_navbar" class="navbar navbar-expand-md navbar-light sticky-top">
+        <div class="container mt-0 border border-primary bg-success">
+            <a class="navbar-brand" href="index.html">
+                <img id="icono" src="src/imagenes/logo.png" alt="Icono web" class="d-block img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button><!--Leerlo desde url-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav border border-success">
+                    <li class="nav-item">
+                        <a class="nav-link" href="videojuegos.html">
+                            <img src="src/imagenes/videojuegos.png" class="d-block img-fluid">Videojuegos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consolas.html">
+                            <img src="src/imagenes/consola2.png" class="d-block img-fluid">Consolas
+                        </a>
+                    </li> 
+                    
+                    <form class="d-flex nav-item">
+                        <div>
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                            <input class="form-control input-largo" autocomplete="off" type="text" placeholder="¿Qué buscas?">
+                        </div>
+                        <div>
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                            <button type="button" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </form> 
+                    <li class=" dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">Conocenos
+                        </a>
+                        <ul class="nav-item dropdown-menu">
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#nosotros');">Quiénes Somos</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#contacto');">Contacto</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#servicios');">Servicios</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#productos');">Productos</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class=" dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">Legal
+                        </a>                        
+                        <ul class="nav-item dropdown-menu">
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#aviso');">Aviso Legal</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#privacidad');">Política de Privacidad</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a onclick="mostrarContenido('#condiciones');">Términos y Condiciones</a>
+                            </li>
+                        </ul>
+                    </li>  
+
+
+                    <div>
+                        <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                        <button type="button" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div>
+                        <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                        <button type="button" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </ul>
+            </div>                    
+        </div>
+    </nav>
+        
+
+    </header>
+
+
+
+    <div class="container">    
+
+        <h1>Bienvenido a Atención al Cliente</h1>
+        <h3>Seleccione un campo: </h3>
+        <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#nosotros');">Quiénes Somos</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#contacto');">Contacto</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#servicios');">Servicios</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#productos');">Productos</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#aviso');">Aviso Legal</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#privacidad');">Política de Privacidad</button>            
+            </div>
+            <div class="col">
+                <button class="p-3 border bg-light" onclick="mostrarContenido('#condiciones');">Términos y Condiciones</button>            
+            </div>
+        </div>
+
+        <div id="nosotros" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Quiénes Somos</h2>
+            <div class="container mt-5 border border-danger text-center">  
+                <img src="src/imagenes/Conocenos/mario.png" alt="Mario Jump" class="d-block img-fluid mario">
+            </div>  
+            <p>En Astra Juegos, nuestra historia se remonta a los primeros días de los videojuegos. Fundada por un grupo de apasionados gamers, nuestra tienda se dedica a llevar la emoción de los juegos a tu puerta. Con un equipo lleno de entusiastas que comparten la misma pasión por los videojuegos, estamos emocionados de embarcarnos en este emocionante proyecto.</p>
+            <p>Nuestro compromiso es ofrecer a nuestros clientes una amplia gama de juegos, consolas y accesorios de alta calidad. ¡Únete a nosotros en esta emocionante aventura y descubre lo que tenemos para ofrecer a la comunidad de gamers!</p>
+        </div>
+        
+        <div id="contacto" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Contacto</h2>
+            <div class="container mt-5 border border-danger text-center">  
+                <img src="src/imagenes/Conocenos/lakitu.png" alt="Lakitu form" class="d-block img-fluid mario">
+            </div>  
+            <p>En Astra Juegos, queremos estar cerca de nuestros clientes en todo momento. Contáctanos para cualquier consulta, comentario o problema que puedas tener. Además, si deseas visitarnos, aquí tienes nuestros datos de contacto:</p>
+            <address>
+                <strong>Dirección:</strong> 123 Calle Gamer, Ciudad Gamer
+                <br>
+                <strong>Teléfono:</strong> +1 (123) 456-7890
+                <br>
+                <strong>Correo Electrónico:</strong> info@astrajuegos.com
+            </address>
+        </div>
+        
+        <div id="servicios" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Servicios</h2>
+            <div class="container mt-5 border border-danger text-center">  
+                <img src="src/imagenes/Conocenos/escudo.png" alt="Escudo Hyliano" class="d-block img-fluid mario">
+            </div>  
+            <p>En Astra Juegos, nuestros servicios están diseñados para llevarte más allá del juego. Desde asesoramiento personalizado hasta eventos en línea, estamos aquí para enriquecer tu experiencia de juego. Únete a nosotros en torneos, experimenta sesiones de juego en grupo y descubre todo lo que ofrecemos para llevar tu pasión por los videojuegos al siguiente nivel.</p>
+            <p>Explora nuestros servicios y acompáñanos en esta emocionante aventura gamer. ¡La diversión nunca termina en Astra Juegos!</p>
+        </div>
+        
+        <div id="productos" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Productos</h2>
+            <div class="container mt-5 border border-danger text-center">  
+                <img src="src/imagenes/Conocenos/trifuerza.png" alt="Trifuerzas" class="d-block img-fluid mario">
+            </div>  
+            <p>En Astra Juegos, nuestra selección de productos es tan diversa como el mundo de los videojuegos. Desde los últimos lanzamientos hasta tesoros clásicos, tenemos algo para cada tipo de jugador. Nuestro equipo de expertos está listo para recomendarte los mejores productos y ayudarte a encontrar exactamente lo que necesitas para vivir una experiencia de juego única.</p>
+            <p>Descubre nuestro mundo de productos gamer y acompáñanos en esta emocionante búsqueda de aventuras virtuales. ¡Tu próxima gran aventura comienza aquí!</p>
+        </div>
+        
+        <div id="aviso" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Aviso Legal</h2>
+            <p>En Astra Juegos, operamos con integridad y transparencia. Nuestro aviso legal describe nuestras políticas, términos y condiciones para garantizar una relación justa y confiable con nuestros clientes. Te invitamos a revisarlo para obtener detalles sobre cómo protegemos tus datos y cómo operamos en el mundo gamer.</p>
+            <p>Acompáñanos en esta búsqueda de transparencia y confianza gamer. Tu satisfacción es nuestra prioridad.</p>
+        </div>
+        
+        <div id="privacidad" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Política de Privacidad</h2> 
+            <p>En Astra Juegos, valoramos tu privacidad. Nuestra política de privacidad detalla cómo manejamos tu información personal y cómo la protegemos. Nos tomamos en serio la seguridad de tus datos y no compartiremos tu información con terceros sin tu consentimiento.</p>
+            <p>Te invitamos a revisar nuestra política de privacidad completa para obtener detalles sobre cómo protegemos tu privacidad. ¡Acompáñanos en esta búsqueda de confianza y seguridad gamer!</p>
+        </div>
+
+        <div id="condiciones" class="mt-5 border border-danger">
+            <h2>Astra Juegos: Términos y Condiciones</h2>
+            <p>Al hacer uso de los servicios y productos proporcionados por Astra Juegos, aceptas los siguientes términos y condiciones. Nuestra tienda de videojuegos se dedica a brindarte una experiencia de juego excepcional, y estos términos y condiciones son fundamentales para garantizar una relación justa y transparente con nuestros clientes.</p>
+            <p>Nos comprometemos a proporcionarte productos y servicios de alta calidad, y esperamos que disfrutes de tu experiencia de compra con nosotros. Estamos aquí para satisfacer tus necesidades de juego y accesorios, y nos enorgullece ser tu elección para todo lo relacionado con los videojuegos.</p>
+            <p>Gracias por elegir Astra Juegos como tu destino de videojuegos. ¡Esperamos que tengas una experiencia increíble con nosotros!</p>
+        </div>
+        
+
+    <div class="container">
+        <div class="row">
+            <div class="footer col-12">
+                <footer>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Conocenos</h5>
+                                <a onclick="mostrarContenido('#nosotros');">Quiénes Somos</a>
+                                <br>
+                                <a onclick="mostrarContenido('#contacto');">Contacto</a>
+                                <br>
+                                <a onclick="mostrarContenido('#servicios');">Servicios</a>
+                                <br>
+                                <a onclick="mostrarContenido('#productos');">Productos</a>
+
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Legal</h5>
+                                <a onclick="mostrarContenido('#aviso');">Aviso Legal</a>
+                                <br>
+                                <a onclick="mostrarContenido('#privacidad');">Política de Privacidad</a>
+                                <br>
+                                <a onclick="mostrarContenido('#condiciones');">Términos y Condiciones</a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Redes Sociales</h5>
+                                <a href="https://www.instagram.com/">Instagram</a>
+                                <br>
+                                <a href="https://www.facebook.com/?locale=es_ES">Facebook</a>
+                                <br>
+                                <a href="https://www.youtube.com/?gl=ES&hl=es">Youtube</a>
+                                <br>
+                                <a href="https://www.tiktok.com/es/">Tiktok</a>
+                                <br>
+                                <a href="https://web.telegram.org/">Telegram</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Dirección: P.º de la Castellana, 89, 28046 Madrid
+                            <br>
+                            Teléfono: 911 23 83 46
+                            <br>
+                            Email: contacta_info@astrajuegos.com
+
+                            <p class="copyright">
+                                © 2023 Astra Juegos. Todos los derechos reservados.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="index.html">
+                        <img id="logo" src="src/imagenes/logo.png" alt="Astra Juegos">
+                    </a>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/juegos_JS.js"></script>
+
+</body>
+</html>

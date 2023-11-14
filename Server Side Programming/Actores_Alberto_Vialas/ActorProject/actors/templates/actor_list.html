@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Actors</title>
+</head>
+<body>
+    <h1>List of Actors</h1>
+    <ul>
+        {% for actor in actors %}
+            <li><a href="{% url 'actor_detail' actor.id %}">{{ actor.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

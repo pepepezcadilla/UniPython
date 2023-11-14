@@ -1,0 +1,64 @@
+-- Tabla empresa
+
+CREATE TABLE empresa (
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  direccion VARCHAR(255) NOT NULL,
+  telefono VARCHAR(255) NOT NULL,
+  nif VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+-- Tabla videojuego
+
+CREATE TABLE videojuego (
+  id INT NOT NULL AUTO_INCREMENT,
+  titulo VARCHAR(255) NOT NULL,
+  genero VARCHAR(255) NOT NULL,
+  plataforma VARCHAR(255) NOT NULL,
+  fecha_lanzamiento DATE NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+-- Tabla consola
+
+CREATE TABLE consola (
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  fabricante VARCHAR(255) NOT NULL,
+  fecha_lanzamiento DATE NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  plataforma VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+-- Tabla copia
+
+CREATE TABLE copia (
+  id INT NOT NULL AUTO_INCREMENT,
+  numero_serie VARCHAR(255) NOT NULL,
+  fecha_compra DATE NOT NULL,
+  estado VARCHAR(255) NOT NULL,
+  videojuego_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (videojuego_id) REFERENCES videojuego (id)
+);
+
+-- Relacion desarrolla
+
+ALTER TABLE videojuego
+ADD CONSTRAINT fk_videojuego_empresa
+FOREIGN KEY (empresa_id) REFERENCES empresa (id);
+
+-- Relacion compatible con
+
+ALTER TABLE videojuego
+ADD CONSTRAINT fk_videojuego_consola
+FOREIGN KEY (consola_id) REFERENCES consola (id);
+
+-- Relacion fabrica
+
+ALTER TABLE consola
+ADD CONSTRAINT fk_consola_fabricante
+FOREIGN KEY (fabricante_id) REFERENCES empresa (id);

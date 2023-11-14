@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a mi colección de juegos">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Miguel Garcia Redondo">
+    <title>Astra Juegos</title>
+
+    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/estilos/estilo_juegos_miguel.css" media="screen" />
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="subir_navbar" class="navbar navbar-expand-md navbar-light sticky-top">
+        <div class="container mt-0 border border-primary bg-success">
+            <a class="navbar-brand" href="index.html">
+                <img id="icono" src="src/imagenes/logo.png" alt="Icono web" class="d-block img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button><!--Leerlo desde url-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav border border-success">
+                    <li class="nav-item">
+                        <a class="nav-link" href="videojuegos.html">
+                            <img src="src/imagenes/videojuegos.png" class="d-block img-fluid">Videojuegos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consolas.html">
+                            <img src="src/imagenes/consola2.png" class="d-block img-fluid">Consolas
+                        </a>
+                    </li> 
+                    
+                    <form class="d-flex nav-item">
+                        <div>
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                            <input class="form-control input-largo" autocomplete="off" type="text" placeholder="¿Qué buscas?">
+                        </div>
+                        <div>
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                            <button type="button" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </form> 
+                    <li class=" dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">Conocenos
+                        </a>
+                        <ul class="nav-item dropdown-menu">
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Quiénes Somos</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Contacto</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Servicios</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Productos</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class=" dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">Legal
+                        </a>                        
+                        <ul class="nav-item dropdown-menu">
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Aviso Legal</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Política de Privacidad</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="conocenos.html">Términos y Condiciones</a>
+                            </li>
+                        </ul>
+                    </li>  
+
+
+                    <div>
+                        <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                        <button type="button" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div>
+                        <img id="invisible" src="src/imagenes/invisible.jpg" class="d-block img-fluid">
+                        <button type="button" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </ul>
+            </div>                    
+        </div>
+    </nav>
+
+    
+    <!--
+    clase carousel: Este elemento es el contenedor principal del carrusel.
+
+    clase carousel-indicators: Este elemento contiene los indicadores que permiten al usuario navegar entre las diapositivas.
+
+    clase carousel-inner: Este elemento contiene las diapositivas del carrusel.
+    
+    clase carousel-item por cada diapositiva. Cada elemento .carousel-item contiene el contenido de la diapositiva.
+
+    clase carousel-control-prev y un elemento a con la clase carousel-control-next. Estos elementos son los botones de control que permiten al usuario navegar entre las diapositivas.
+    -->
+
+    <!-- Container para centrar el contenido -->
+    <div class="container mt-5 border border-primary">
+        
+        <h3 class="text-sm-center">Destacados</h3>
+          
+        <!-- Fila para el carrusel -->
+        <div class="row justify-content-center border border-success">
+            <div class="col-md-5 me-md-10 border border-danger">
+                <div id="myCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="4500">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="4"></li>
+
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="src/imagenes/carousel/maker.jpg" alt="Mario Maker 3ds" class="d-block img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="src/imagenes/carousel/tears.jpg" alt="Tears of the Kingdom" class="d-block img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="src/imagenes/carousel/fallen.jpg" alt="Fallen order" class="d-block img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="src/imagenes/carousel/starfield.jpg" alt="Starfield" class="d-block img-fluid">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="src/imagenes/carousel/survivor.jpg" alt="Jedi Survivor" class="d-block img-fluid">
+                        </div>   
+                    </div>        
+
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only text-black"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" ariahidden="true"></span>
+                        <span class="sr-only text-black"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="aos-item">
+            <h3 data-aos="zoom-in">Más juegos en la sección de
+                <a href="videojuegos.html">
+                    Videojuegos
+                </a>
+            </h3>
+        </div>
+        <div class="aos-item" data-aos="zoom-in">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=godV">
+                        <img id="god" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/god.png" alt="God of War">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gt7">
+                        <img id="gt7" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/gt7.png" alt="Gran Turismo 7">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gta">
+                        <img id="gta" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/gta.png" alt="Grand Theft Auto V">
+                    </a>
+                </div>        
+            </div>
+        </div>
+
+        <br>
+
+        <div class="aos-item" data-aos="zoom-in">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead">
+                        <img id="dead" class="game-images" src="./src/imagenes/videojuegos/xbox/dead.png" alt="Dead Space">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead2">
+                        <img id="dead2" class="game-images" src="./src/imagenes/videojuegos/xbox/dead2.png" alt="Dead Island 2">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=farcry6">
+                        <img id="farcry6" class="game-images" src="./src/imagenes/videojuegos/xbox/farcry6.png" alt="Far Cry 6">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="aos-item" data-aos="zoom-in">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=animal">
+                        <img id="animal" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/animal.png" alt="Animal Crossing New Horizons">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=breath">
+                        <img id="breath" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/breath.png" alt="The legend of Zelda: Breath of the wild">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=kart">
+                        <img id="kart" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/kart.png" alt="Mario Kart 8 deluxe">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        
+        <div class="container">
+          <div class="row">
+              <div class="footer col-12">
+                    <footer>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>
+                                    <h5>Conocenos</h5>
+                                    <a href="conocenos.html">Quiénes Somos</a>
+                                    <br>
+                                    <a href="conocenos.html" >Contacto</a>
+                                    <br>
+                                    <a href="conocenos.html" >Servicios</a>
+                                    <br>
+                                    <a href="conocenos.html" >Productos</a>
+
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>
+                                    <h5>Legal</h5>
+                                    <a href="conocenos.html">Aviso Legal</a>
+                                    <br>
+                                    <a href="conocenos.html">Política de Privacidad</a>
+                                    <br>
+                                    <a href="conocenos.html">Términos y Condiciones</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>
+                                    <h5>Redes Sociales</h5>
+                                    <a href="https://www.instagram.com/">Instagram</a>
+                                    <br>
+                                    <a href="https://www.facebook.com/?locale=es_ES">Facebook</a>
+                                    <br>
+                                    <a href="https://www.youtube.com/?gl=ES&hl=es">Youtube</a>
+                                    <br>
+                                    <a href="https://www.tiktok.com/es/">Tiktok</a>
+                                    <br>
+                                    <a href="https://web.telegram.org/">Telegram</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Dirección: P.º de la Castellana, 89, 28046 Madrid
+                                <br>
+                                Teléfono: 911 23 83 46
+                                <br>
+                                Email: contacta_info@astrajuegos.com
+
+                                <p class="copyright">
+                                    © 2023 Astra Juegos. Todos los derechos reservados.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="index.html">
+                            <img id="logo" src="src/imagenes/logo.png" alt="Astra Juegos">
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+      
+        
+
+    <!-- Agrega la referencia a los archivos JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/juegos_JS.js" type="module"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

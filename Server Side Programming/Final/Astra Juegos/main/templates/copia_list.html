@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Videojuegos Alquilados</h1>
+
+    {% if copia_list %}
+    <ul>
+      {% for copia in copia_list %}
+        {% if copia.cliente == user%}
+          <li>
+            <a href="{{ copia.videojuego.get_absolute_url }}">{{ copia.videojuego.titulo }}</a> ({{ copia.plataforma.nombre }}) ALQUILADA hasta {{copia.fecha_limite}} por {{copia.cliente}}
+          </li>
+        {%else%}
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No tienes videojuegos alquilados.</p>
+    {% endif %}
+{% endblock %}

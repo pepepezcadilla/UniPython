@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de Plataformas</h1>
+    <ul>
+        {% for plataforma in plataformas %}
+            <li><a href="{% url 'plataforma' plataforma.pk %}">{{ plataforma.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

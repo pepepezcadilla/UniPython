@@ -1,0 +1,128 @@
+<!--Herencia de plantillas de django-->
+<!--Heredamos de la plantilla principal base, cualquier cosa que definas en base se repetira en las que heredan-->
+{% extends "base.html" %}
+
+<!--Este es el contenido especifico de esta pagina -->
+{% block content %} 
+    <div class="row justify-content-center border border-success">
+        <p>Tenemos {{ cantidad_juegos }} videojuegos de {{ cantidad_plataformas }} plataformas ahora mismo</p>
+    </div>
+    <h3 class="text-sm-center">Destacados</h3>
+            
+    <!-- Fila para el carrusel -->
+    <div class="row justify-content-center border border-success">
+        <div class="col-md-5 me-md-10 border border-danger">
+            <div id="myCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="4500">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="4"></li>
+
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="static/imagenes/carousel/maker.jpg" alt="Mario Maker 3ds" class="d-block img-fluid">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/imagenes/carousel/tears.jpg" alt="Tears of the Kingdom" class="d-block img-fluid">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/imagenes/carousel/fallen.jpg" alt="Fallen order" class="d-block img-fluid">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/imagenes/carousel/starfield.jpg" alt="Starfield" class="d-block img-fluid">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/imagenes/carousel/survivor.jpg" alt="Jedi Survivor" class="d-block img-fluid">
+                    </div>   
+                </div>        
+
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only text-black"></span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" ariahidden="true"></span>
+                    <span class="sr-only text-black"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="aos-item">
+        <h3 data-aos="zoom-in">Más juegos en la sección de
+            <a href="videojuegos.html">
+                Videojuegos
+            </a>
+        </h3>
+    </div>
+    <div class="aos-item" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=godV">
+                    <img id="god" class="game-images" src="./static/imagenes/videojuegos/playstation/ps5/god.png" alt="God of War">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gt7">
+                    <img id="gt7" class="game-images" src="./static/imagenes/videojuegos/playstation/ps5/gt7.png" alt="Gran Turismo 7">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gta">
+                    <img id="gta" class="game-images" src="./static/imagenes/videojuegos/playstation/ps5/gta.png" alt="Grand Theft Auto V">
+                </a>
+            </div>        
+        </div>
+    </div>
+
+    <br>
+
+    <div class="aos-item" data-aos="zoom-in">
+
+        <div class="row">
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead">
+                    <img id="dead" class="game-images" src="./static/imagenes/videojuegos/xbox/dead.png" alt="Dead Space">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead2">
+                    <img id="dead2" class="game-images" src="./static/imagenes/videojuegos/xbox/dead2.png" alt="Dead Island 2">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=farcry6">
+                    <img id="farcry6" class="game-images" src="./static/imagenes/videojuegos/xbox/farcry6.png" alt="Far Cry 6">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="aos-item" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=animal">
+                    <img id="animal" class="game-images" src="./static/imagenes/videojuegos/nintendo/switch/animal.png" alt="Animal Crossing New Horizons">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=breath">
+                    <img id="breath" class="game-images" src="./static/imagenes/videojuegos/nintendo/switch/breath.png" alt="The legend of Zelda: Breath of the wild">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=kart">
+                    <img id="kart" class="game-images" src="./static/imagenes/videojuegos/nintendo/switch/kart.png" alt="Mario Kart 8 deluxe">
+                </a>
+            </div>
+        </div>
+    </div>
+  
+
+{% endblock %}

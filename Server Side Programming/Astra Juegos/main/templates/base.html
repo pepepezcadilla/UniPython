@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Miguel Garcia Redondo">
+    <title>Astra Juegos</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_juegos_miguel.css' %}" media="screen" />
+    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav id="subir_navbar" class="navbar navbar-expand-md navbar-light sticky-top">
+            <div class="container mt-0 border border-primary bg-success">
+                <a class="navbar-brand" href="base.html">
+                    <img id="icono" src="static/imagenes/logo.png" alt="Icono web" class="d-block img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--Leerlo desde url-->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav border border-success">
+                        <li class="nav-item">
+                            <a class="nav-link" href="videojuegos.html">
+                                <img src="static/imagenes/videojuegos.png" class="d-block img-fluid">Videojuegos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="consolas.html">
+                                <img src="static/imagenes/consola2.png" class="d-block img-fluid">Consolas
+                            </a>
+                        </li> 
+                        
+
+                        <form class="d-flex nav-item" action="{% url 'busqueda' %}" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">
+                                <input class="form-control input-largo" autocomplete="off" type="search" placeholder="¿Qué buscas?" name="buscado">
+                            </div>
+                            <div>
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">
+                                <button type="submit" class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </form> 
+
+
+                        <li class=" dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">Conocenos
+                            </a>
+                            <ul class="nav-item dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Quiénes Somos</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Contacto</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Servicios</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Productos</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class=" dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">Legal
+                            </a>                        
+                            <ul class="nav-item dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Aviso Legal</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Política de Privacidad</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="conocenos.html">Términos y Condiciones</a>
+                                </li>
+                            </ul>
+                        </li>  
+
+                        
+                        <div>
+                            {% if not user.is_authenticated %}
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">
+                                <button type="button" class="btn">
+                                    <a href="{% url 'login' %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                                        </svg>
+                                    </a>
+                                </button>
+                            {% else %}
+                                <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">
+                                <button type="button" class="btn">
+                                    <a href="{% url 'login' %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                    </a>
+                                </button>
+                            {% endif %}
+                        </div>
+                        
+                        <div>
+                            <img id="invisible" src="static/imagenes/invisible.jpg" class="d-block img-fluid">
+                            <button type="button" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </ul>
+                </div>                    
+            </div>
+        </nav>
+    </header>
+
+    <!-- Container para centrar el contenido -->
+    <main class="container mt-5 border border-primary">
+        <ul>
+            <li><a href="{% url 'videojuegos' %}">Videojuegos</a></li>
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}"></a></li>
+            {% else %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% endif %}
+
+            <form action="{% url 'busqueda' %}" method="POST">
+                {% csrf_token %}
+
+                <input type="search" placeholder="Buscar" name="buscado">
+                <button type="submit">Buscar</button>
+            </form>
+        
+        </ul>
+        {% block content %}
+        
+        {% endblock %}
+    </main> 
+
+    <div class="container">
+        <div class="row">
+            <div class="footer col-12">
+                <footer>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Conocenos</h5>
+                                <a href="conocenos.html">Quiénes Somos</a>
+                                <br>
+                                <a href="conocenos.html" >Contacto</a>
+                                <br>
+                                <a href="conocenos.html" >Servicios</a>
+                                <br>
+                                <a href="conocenos.html" >Productos</a>
+
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Legal</h5>
+                                <a href="conocenos.html">Aviso Legal</a>
+                                <br>
+                                <a href="conocenos.html">Política de Privacidad</a>
+                                <br>
+                                <a href="conocenos.html">Términos y Condiciones</a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <h5>Redes Sociales</h5>
+                                <a href="https://www.instagram.com/">Instagram</a>
+                                <br>
+                                <a href="https://www.facebook.com/?locale=es_ES">Facebook</a>
+                                <br>
+                                <a href="https://www.youtube.com/?gl=ES&hl=es">Youtube</a>
+                                <br>
+                                <a href="https://www.tiktok.com/es/">Tiktok</a>
+                                <br>
+                                <a href="https://web.telegram.org/">Telegram</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Dirección: P.º de la Castellana, 89, 28046 Madrid
+                            <br>
+                            Teléfono: 911 23 83 46
+                            <br>
+                            Email: contacta_info@astrajuegos.com
+
+                            <p class="copyright">
+                                © 2023 Astra Juegos. Todos los derechos reservados.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="index.html">
+                        <img id="logo" src="static/imagenes/logo.png" alt="Astra Juegos">
+                    </a>
+                </footer>
+            </div>
+        </div>
+    </div>
+        
+
+    <!-- Agrega la referencia a los archivos JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/juegos_JS.js" type="module"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

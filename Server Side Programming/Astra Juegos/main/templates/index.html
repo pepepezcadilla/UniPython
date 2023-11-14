@@ -1,0 +1,11 @@
+<!--Herencia de plantillas de django-->
+<!--Heredamos de la plantilla principal base, cualquier cosa que definas en base se repetira en las que heredan-->
+{% extends "base.html" %}
+
+<!--Este es el contenido especifico de esta pagina -->
+{% block content %} 
+    <h1>Astra Juegos</h1>
+    <p>Tenemos {{ cantidad_juegos }} videojuegos de {{ cantidad_plataformas }} plataformas ahora mismo</p>
+  
+
+{% endblock %}

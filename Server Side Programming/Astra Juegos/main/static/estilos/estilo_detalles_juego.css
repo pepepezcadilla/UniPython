@@ -1,0 +1,45 @@
+/* styles.css */
+
+/* Fondo azul claro */
+body {
+    background: url('https://redpithemes.com/Documentation/assets/img/page_bg/page_bg_blur03.jpg');
+    display: flex;
+    justify-content: center;
+}
+#juego {
+    width: 65vw;
+    height: 100vh;
+    color: purple;
+    background-color: white;
+    box-shadow: 0px 0px 50px 50px white;
+}
+
+.father {
+    display: flex;
+    flex-direction: column;
+}
+.nombre {
+    text-align: center;
+}
+.wrap {
+    display: flex;
+    justify-content: center;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+    display: flex;
+    margin-left: 5vw;
+    flex-direction: column;
+    justify-content: center;
+}
+.imagen {
+    width: 20vw;
+    height: auto;
+}
+.iframe-container {
+    display: flex;
+    justify-content: center;
+}

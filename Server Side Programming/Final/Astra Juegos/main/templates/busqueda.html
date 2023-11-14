@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+
+    {% if buscado %}
+        <h1>Has buscado: {{ buscado }}</h1><br>
+
+        <h2>Videojuegos:</h2><br>
+        {% for busq in bus_videojuegos %}
+            <a href="{% url 'videojuego' busq.id %}">{{ busq.titulo }}</a><br>
+        {% endfor %}
+
+        <h2>Consolas:</h2><br>
+        {% for busq in bus_consolas %}
+            <!-- el href para la página individual de consola -->
+            <a href="">{{ busq.nombre }}</a><br>
+        {% endfor %}
+
+        <h2>Empresas:</h2><br>
+        {% for busq in bus_empresas %}
+            <!-- el href para la página individual de empresa -->
+            <a href="">{{ busq.nombre }}</a><br>
+        {% endfor %}
+
+    {% else %}
+        <h1>No se ha buscado nada...</h1>
+    {% endif %}
+    
+
+
+    
+  
+
+{% endblock %}

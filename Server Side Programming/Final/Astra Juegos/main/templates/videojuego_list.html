@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de Videojuegos</h1>
+    <ul>
+        {% for videojuego in videojuegos %}
+            <table>
+                <a href="{% url 'videojuego' videojuego.pk %}">
+                    <img src="{{videojuego.imagen.url}}">
+                </a>
+                
+            </table>
+        {% endfor %}
+    </ul>
+{% endblock %}

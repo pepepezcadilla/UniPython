@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ actor.name }} Details</title>
+</head>
+<body>
+    <h1>{{ actor.name }} Details</h1>
+    <p>Bio: {{ actor.bio }}</p>
+    <p>Birth Date: {{ actor.birth_date }}</p>
+
+    <h2>Movies:</h2>
+    <ul>
+        {% for movie in actor.movie_set.all %}
+            <li>{{ movie.title }} ({{ movie.year }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

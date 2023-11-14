@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <!-- Container para centrar el contenido -->
+    <div class="container mt-5">
+        
+        <h3 class="text-sm-center">Destacados</h3>
+        <hr>
+
+        <div class="container text-center">
+            <div class="buttonContainer">
+                <div class="menuImg" onclick="mostrarContenido('Switch');">
+                    <img src="./src/imagenes/videojuegos/nintendo/switch/switch.png">
+                </div>
+                <div class="menuImg" onclick="mostrarContenido('3ds');">
+                    <img src="./src/imagenes/videojuegos/nintendo/3ds/3ds.png">
+                </div>
+                <div id="anclaPS5"class="menuImg" aria-current="page" onclick="mostrarContenido('PS5');">
+                    <img src="./src/imagenes/videojuegos/playstation/ps5/psV.png">
+                </div>
+                <div id="anclaPS4"class="menuImg" aria-current="page" onclick="mostrarContenido('PS4');">
+                    <img src="./src/imagenes/videojuegos/playstation/ps4/ps4.png">
+                </div>
+                <div class="menuImg" onclick="mostrarContenido('Xbox');">
+                    <img src="./src/imagenes/videojuegos/xbox/xboxOne.png">
+                </div>
+            </div>
+        </div>
+        <div class="row juegos-main">
+
+            <div class="main col-md-12">
+
+                <div id="contenidoPS5" style="display: none;">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=godV">
+                                <img id="god" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/god.png" alt="God of War">
+                                <p style="text-align: center;">God of War</p>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gt7">
+                                <img id="gt7" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/gt7.png" alt="Gran Turismo 7">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=gta">
+                                <img id="gta" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/gta.png" alt="Grand Theft Auto V">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=last1">
+                                <img id="last1" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/last1.png" alt="The last of Us 1">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=miles">
+                                <img id="miles" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/miles.png" alt="Miles Morales">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=ratchet">
+                                <img id="ratchet" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/ratchet.png" alt="Ratchet and Clank">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=survivor">
+                                <img id="survivor" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/survivor.png" alt="Star Wars Jedi Survivor">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=witcher">
+                                <img id="witcher" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/witcher.png" alt="The Witcher 3">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psV&nombre=yakuza">
+                                <img id="yakuza" class="game-images" src="./src/imagenes/videojuegos/playstation/ps5/yakuza.png" alt="Yakuza: Like a dragon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contenidoPS4" style="display: none;">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=detroit">
+                                <img id="detroit" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/detroit.png" alt="Detroit: become human">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=fallenOrder">
+                                <img id="fallenOrder" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/fallen order.png" alt="Gran Turismo 7">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=god">
+                                <img id="god" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/god.png" alt="God of War">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=lastOfUs">
+                                <img id="lastOfUs" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/last of us.png" alt="The last of Us">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=rainbow">
+                                <img id="rainbow" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/rainbow.png" alt="Rainbow six Siege">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=rd2">
+                                <img id="id2" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/rd2.png" alt="Red Dead Redemption 2">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=spidey">
+                                <img id="spidey" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/spidey.png" alt="Spider-man">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=tsushima">
+                                <img id="tsushima" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/tsushima.png" alt="Ghost of Tsushima">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=playStation&consola=psIV&nombre=uncharted">
+                                <img id="uncharted" class="game-images" src="./src/imagenes/videojuegos/playstation/ps4/uncharted.png" alt="Uncharted the collection">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contenidoSwitch">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=animal">
+                                <img id="animal" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/animal.png" alt="Animal Crossing New Horizons">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=breath">
+                                <img id="breath" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/breath.png" alt="The legend of Zelda: Breath of the wild">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=kart">
+                                <img id="kart" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/kart.png" alt="Mario Kart 8 deluxe">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=kirbiS">
+                                <img id="kirbi" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/kirbi.png" alt="Kirbi y la tierra olvidada">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=luigiMansion3">
+                                <img id="luigiMansion3" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/mansion3.png" alt="Luigi's mansion 3">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=mario3d">
+                                <img id="mario3d" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/mario 3d.png" alt="Super Mario 3d World">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=odyssey">
+                                <img id="odyssey" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/odyssey.png" alt="Super Mario Odyssey">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=pkm">
+                                <img id="pkm" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/pkm.png" alt="Pokemon Púrpura">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=switch&nombre=tears">
+                                <img id="tears" class="game-images" src="./src/imagenes/videojuegos/nintendo/switch/tears.png" alt="The legend of Zelda: Tears of the Kingdom">
+                            </a>
+                        </div>
+                        
+
+                    </div>
+                
+                </div>
+
+                <div id="contenido3ds" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=dk">
+                                <img id="dk" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/dk.png" alt="Donkey Kong Country returns">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=inazuma">
+                                <img id="inazuma" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/inazuma.png" alt="Inazuma Eleven">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=maker">
+                                <img id="maker" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/maker.png" alt="Super Mario Maker">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=mansion2">
+                                <img id="mansion2" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/mansion2.png" alt="Luigi's mansion 2">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=animalCrossing">
+                                <img id="animalCrossing" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/new leaf.png" alt="Animal Crossing new Leaf">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=ninjago">
+                                <img id="ninjago" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/ninjago.png" alt="Lego ninjago">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=ocarina">
+                                <img id="ocarina" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/ocarina.png" alt="The legand of Zelda: Ocarina of time 3D">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=zafiro">
+                                <img id="zafiro" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/zafiro.png" alt="Pokemon Zafiro Alfa">
+                            </a>
+                        </div>               
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=nintendo&consola=IIIds&nombre=kirby">
+                                <img id="kirby" class="game-images" src="./src/imagenes/videojuegos/nintendo/3ds/kirby.png" alt="Kirby's extra">
+                            </a>
+                        </div>               
+                    </div>
+                </div>
+
+                <div id="contenidoXbox" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead">
+                                <img id="dead" class="game-images" src="./src/imagenes/videojuegos/xbox/dead.png" alt="Dead Space">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=dead2">
+                                <img id="dead2" class="game-images" src="./src/imagenes/videojuegos/xbox/dead2.png" alt="Dead Island 2">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=farcry6">
+                                <img id="farcry6" class="game-images" src="./src/imagenes/videojuegos/xbox/farcry6.png" alt="Far Cry 6">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=forza">
+                                <img id="forza" class="game-images" src="./src/imagenes/videojuegos/xbox/forza.png" alt="Forza MotorSport">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=halo">
+                                <img id="halo" class="game-images" src="./src/imagenes/videojuegos/xbox/halo.png" alt="Halo Infinite">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=hogwarts">
+                                <img id="hogwarts" class="game-images" src="./src/imagenes/videojuegos/xbox/hogwarts.png" alt="Hogwarts Legacy">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=kakarot">
+                                <img id="kakarot" class="game-images" src="./src/imagenes/videojuegos/xbox/kakarot.png" alt="Dragon Ball Z Kakarot">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=midnight">
+                                <img id="midnight" class="game-images" src="./src/imagenes/videojuegos/xbox/midnight.png" alt="Midnight Suns">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="./juego.html?juego=1&plataforma=xbox&consola=one&nombre=starfield">
+                                <img id="starfield" class="game-images" src="./src/imagenes/videojuegos/xbox/Starfield.png" alt="Starfield">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}

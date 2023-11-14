@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Astra Juegos</title>
+        {% load static %}
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'plataformas' %}">Plataformas</a></li>
+                    <li><a href="{% url 'videojuegos' %}">Videojuegos</a></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% else %}
+                        <li><a href="{% url 'plataforma-create' %}">Crear una nueva plataforma</a></li>
+                        <li><a href="{% url 'videojuego-create' %}">Crear un nuevo Videojuego</a></li>
+                        <li><a href="{% url 'alquiladas' %}">Videojuegos alquilados por ti</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% endif %}
+
+                    <form action="{% url 'busqueda' %}" method="POST">
+                        {% csrf_token %}
+
+                        <input type="search" placeholder="Buscar" name="buscado">
+                        <button type="submit">Buscar</button>
+                    </form>
+                
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="container">
+            {% block content %} {% endblock %}
+        </main>
+        <footer>
+            <p>{{ num_visitas }} visita{{num_visitas|pluralize:'s'}} </p>
+            <p>Última videojuego: {{ult_juego}}</p>
+            <p>Primer videojuego: {{pri_juego}}</p>
+        </footer>
+    </body>
+</html>

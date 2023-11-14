@@ -1,0 +1,244 @@
+
+.modal {
+  display: none;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 422px;
+  top:200px;
+  left:0;
+
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  width:130%;
+  height:150%
+}
+
+#icono {
+    width: 100px;
+    height: 60px;
+}
+ul{
+    list-style-type:none;
+}
+/* Style the navigation bar links */
+.navbar a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Cambio el color al hacer click */
+.navbar li:hover {
+    background-color: rgb(168, 100, 168);
+    color: black;
+}
+
+.navbar button {
+    background-color: rgb(168, 100, 168);
+}
+
+#invisible {
+    opacity: 0;
+}
+.carousel-item img {
+    max-width: 100%; /* Asegura que las imágenes no superen el 100% del ancho del carrusel */
+    height: auto; /* Mantén la proporción original de las imágenes */
+}
+
+.carousel-inner {
+
+    align-items: center;
+}
+
+.carousel .carousel-control-prev {
+    position: absolute;
+    left: -15%;
+    z-index: 1;
+    color: #0a0a0a !important;
+    background-color: #0a0a0a;
+    font-weight: bold;
+
+}
+
+.carousel .carousel-control-next {
+    position: absolute;
+    right: -15%;
+    z-index: 1;
+    color: #0a0a0a !important;
+    background-color: #0a0a0a;
+    font-weight: bold;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    font-size: 15px;
+}
+
+#logo {
+    width: 140px;
+    height: 80px;
+}
+
+#enlaces {
+    list-style: none;
+}
+
+#boton {
+    background-color: #9cd78e;
+}
+
+.mario {
+    width: 33%;
+    height: auto; /* Para mantener la proporción de aspecto original */
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .carousel .carousel-control-prev {
+      left: 0%;
+      color: #ffffff !important;
+    }
+
+    .carousel .carousel-control-next {
+      right: 0%;
+      color: #ffffff !important;
+    }
+    .row, .navbar {
+        flex-direction: column;
+    }
+
+    .navbar .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar .nav-link img {
+        max-width: 100%; /* Para asegurarte de que la imagen no sea más ancha que su contenedor */
+    }
+
+
+    /* Asegúrate de que el contenedor del formulario tenga flex */
+    .navbar .d-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Alinea verticalmente el contenido */
+    .navbar .d-flex div {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Ajusta el ancho máximo de la imagen para evitar que sea más ancha de lo deseado */
+    .navbar .d-flex img {
+        max-width: 100%;
+    }
+
+    /* Opcionalmente, puedes ajustar el espacio entre los elementos */
+    .navbar .d-flex div + div {
+        margin-left: 10px; /* Cambia esto según tus preferencias */
+    }
+
+
+    .row-cols-2 .col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Opcionalmente, puedes ajustar el espacio entre los botones */
+    .row-cols-2 .col + .col {
+        margin-top: 10px; /* Cambia esto según tus preferencias */
+    }
+
+    /* Cambia la imagen de fondo para dispositivos móviles */
+    .main {
+        background-image: url(archivos/imagenes/Espacio\ star\ wars-mobile.webp);
+        max-width: 100%;
+    }
+    table {
+        width: 100%; /* Hace que la tabla ocupe el ancho completo en dispositivos móviles */
+    }
+
+    td {
+        text-align: center; /* Centra el contenido en las celdas */
+    }
+
+    th {
+        display: none; /* Oculta las cabeceras de la tabla en dispositivos móviles si es necesario */
+    }
+
+    .header img,
+    .main img {
+        max-width: 100%; /* Hace que las imágenes se ajusten al ancho de la pantalla */
+        height: auto; /* Mantiene la relación de aspecto */
+        display: block; /* Elimina cualquier margen o relleno adicional */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    .side {
+        flex: 100%; /* Haz que la columna ocupe el 100% del ancho en dispositivos móviles */
+        padding: 20px;
+        text-align: center; /* Centra el contenido en dispositivos móviles */
+    }
+
+    .side img {
+        max-width: 100%; /* Ajusta el ancho de las imágenes al 100% del ancho de la columna */
+        height: auto; /* Mantiene la relación de aspecto de las imágenes */
+        display: block; /* Elimina cualquier margen o relleno adicional de las imágenes */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    form {
+        max-width: 100%; /* Ajusta el ancho del formulario al 100% de la pantalla */
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%; /* Ajusta el ancho de los campos de entrada al 100% del formulario */
+    }
+}
